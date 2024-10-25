@@ -100,11 +100,13 @@ PATHTOMYAPPLICATIONS=$(echo ${HOME}/myapplications) #My applications.
 PATHTOMYSLURM=$(echo ${HOME}/myslurm) #SLURM directory.
 MYSLURMFILE="${PATHTOMYSLURM}/slurm-%J.out" #SLURM file.
 PATHTOMYSCRIPTS=$(echo ${HOME}/myscripts) #My scripts.
-PATHTOMYSBATCHSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-sbatch) #SBATCH scripts. Clone from GitHub.
-PATHTOMYGENERALSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-general) #General scripts. Clone from GitHub.
 PATHTOMYBASHPROFILES=$(echo ${PATHTOMYSCRIPTS}/bashprofiles) #Bash profiles. Clone from GitHub.
+PATHTOMYSBATCHSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-sbatch) #SBATCH scripts. Clone from GitHub.
+PATHTOMYRSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-R) #R scripts. Clone from GitHub.
+PATHTOMYPYTHONSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-Python) #Python scripts. Clone from GitHub.
+PATHTOMYGENERALSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-stdout) #General scripts. Clone from GitHub.
+PATHTOMYPIPELINES=$(echo ${PATHTOMYSCRIPTS}/bioinformatics-workflow) #Bioinformatics workflow. Clone from GitHub.
 PATHTOMYSUBMITTEDSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-submitted) #Submitted scripts.
-PATHTOMYPIPELINES=$(echo ${PATHTOMYSCRIPTS}/bioinformatics-pipelines) #Bioinformatics pipelines. Clone from GitHub.
 
 #PROJECT DIRECTORIES:
 PATHTOPROJWORKINGDIR=$(echo ${PROJHOME}/${USER}-workingdir) #Working directory.
@@ -133,7 +135,7 @@ MYEMAILADDRESS=?????
 #PATH (define directories containing executable files/scripts):
 
 #General:
-export PATH=$PATH:${PATHTOMYSBATCHSCRIPTS}:${PATHTOMYGENERALSCRIPTS}:${PATHTOMYBASHPROFILES}:${PATHTOMYSUBMITTEDSCRIPTS}
+export PATH=$PATH:${PATHTOMYSBATCHSCRIPTS}:${PATHTOMYRSCRIPTS}:${PATHTOMYGENERALSCRIPTS}:${PATHTOMYBASHPROFILES}:${PATHTOMYSUBMITTEDSCRIPTS}
 
 #Installed applications.
 export PATH=$PATH:$(echo ${PATHTOMYAPPLICATIONS}/?????) #Path to some specific installation.
