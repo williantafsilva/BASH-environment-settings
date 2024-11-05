@@ -27,16 +27,18 @@ cd ${HOME}
 #mkdir $(echo "${HOME}/myoutput")
 #mkdir $(echo "${HOME}/myslurm")
 #mkdir $(echo "${HOME}/mytmp")
+#mkdir $(echo "${HOME}/myexport")
 #mkdir $(echo "${HOME}/mytrash")
+#mkdir $(echo "${HOME}/mytest")
 #mkdir $(echo "${HOME}/myapplications")
 
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/output")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/original-files")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/tmp")
+#mkdir $(echo "${PROJHOME}/${USER}-workingdir/export")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/trash")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/.screenshots")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/testdir")
+#mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
 
 ############################################################################
 #INTERNAL FIELD SEPARATOR (IFS):
@@ -96,6 +98,8 @@ export PS1="[\[\e[1;32m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\]:\[\e[1;34m\]\W\[\e[m\
 PATHTOMYOUTPUT=$(echo ${HOME}/myoutput) #Output directory.
 PATHTOMYTRASH=$(echo ${HOME}/mytrash) #Trash directory.
 PATHTOMYTMP=$(echo ${HOME}/mytmp) #Temporary files directory.
+PATHTOMYEXPORT=$(echo ${HOME}/myexport) #Export directory.
+PATHTOMYTEST=$(echo ${HOME}/mytest) #Test directory.
 PATHTOMYAPPLICATIONS=$(echo ${HOME}/myapplications) #My applications.
 PATHTOMYSLURM=$(echo ${HOME}/myslurm) #SLURM directory.
 MYSLURMFILE="${PATHTOMYSLURM}/slurm-%J.out" #SLURM file.
@@ -113,9 +117,9 @@ PATHTOPROJWORKINGDIR=$(echo ${PROJHOME}/${USER}-workingdir) #Working directory.
 PATHTOPROJOUTPUT=$(echo ${PATHTOPROJWORKINGDIR}/output) #Output directory.
 PATHTOPROJORIGINALFILES=$(echo ${PATHTOPROJWORKINGDIR}/original-files) #Original files directory.
 PATHTOPROJTMP=$(echo ${PATHTOPROJWORKINGDIR}/tmp) #Temporary files directory.
-PATHTOPROJTRASH=$(echo ${PATHTOPROJWORKINGDIR}/trash) #Temporary files directory.
-PATHTOPROJTESTDIR=$(echo ${PATHTOPROJWORKINGDIR}/test) #Temporary test directory.
-PATHTOPROJSCREENSHOTS=$(echo ${PATHTOPROJWORKINGDIR}/.screenshots) #Screenshots directory.
+PATHTOPROJEXPORT=$(echo ${PATHTOPROJWORKINGDIR}/export) #Export directory.
+PATHTOPROJTRASH=$(echo ${PATHTOPROJWORKINGDIR}/trash) #Trash directory.
+PATHTOPROJTEST=$(echo ${PATHTOPROJWORKINGDIR}/test) #Test test directory.
 
 ############################################################################
 #IMPORTANT VARIABLES (define variables):
@@ -184,7 +188,7 @@ alias myscripts='cd ${PATHTOMYSCRIPTS}'
 alias mytmpdir='cd ${PATHTOMYTMP}' 
 alias projtmp='cd ${PATHTOPROJTMP}'
 #Shortcut to test directory.
-alias projtest='cd ${PATHTOPROJTESTDIR}' 
+alias projtest='cd ${PATHTOPROJTEST}' 
 #Shortcut to trash directory.
 alias projtrash='cd ${PATHTOPROJTRASH}'
 #Shortcut to specific projects.
