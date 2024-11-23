@@ -24,20 +24,22 @@ cd ${HOME}
 #Create the following directories:
 #mkdir $(echo "${HOME}/myscripts")
 #mkdir $(echo "${HOME}/myscripts/scripts-submitted")
-#mkdir $(echo "${HOME}/myoutput")
 #mkdir $(echo "${HOME}/myslurm")
+#mkdir $(echo "${HOME}/myoutput")
+#mkdir $(echo "${HOME}/mysafe")
+#mkdir $(echo "${HOME}/mytrash")
+#mkdir $(echo "${HOME}/myapplications")
 #mkdir $(echo "${HOME}/mytmp")
 #mkdir $(echo "${HOME}/myexport")
-#mkdir $(echo "${HOME}/mytrash")
 #mkdir $(echo "${HOME}/mytest")
-#mkdir $(echo "${HOME}/myapplications")
 
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/output")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/original-files")
+#mkdir $(echo "${PROJHOME}/${USER}-workingdir/safe")
+#mkdir $(echo "${PROJHOME}/${USER}-workingdir/trash")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/tmp")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/export")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/trash")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
 
 ############################################################################
@@ -96,6 +98,7 @@ export PS1="[\[\e[1;32m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\]:\[\e[1;34m\]\W\[\e[m\
 
 #PERSONAL DIRECTORIES:
 PATHTOMYOUTPUT=$(echo ${HOME}/myoutput) #Output directory.
+PATHTOMYSAFE=$(echo ${HOME}/mysafe) #Output directory.
 PATHTOMYTRASH=$(echo ${HOME}/mytrash) #Trash directory.
 PATHTOMYTMP=$(echo ${HOME}/mytmp) #Temporary files directory.
 PATHTOMYEXPORT=$(echo ${HOME}/myexport) #Export directory.
@@ -109,13 +112,15 @@ PATHTOMYSBATCHSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-sbatch) #SBATCH scripts.
 PATHTOMYRSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-R) #R scripts. Clone from GitHub.
 PATHTOMYPYTHONSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-Python) #Python scripts. Clone from GitHub.
 PATHTOMYGENERALSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-stdout) #General scripts. Clone from GitHub.
-PATHTOMYPIPELINES=$(echo ${PATHTOMYSCRIPTS}/bioinformatics-workflow) #Bioinformatics workflow. Clone from GitHub.
+PATHTOMYWORKFLOW=$(echo ${PATHTOMYSCRIPTS}/bioinformatics-workflow) #Bioinformatics workflow. Clone from GitHub.
+PATHTOMYTMPSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-tmp) #Temporary scripts. Clone from GitHub.
 PATHTOMYSUBMITTEDSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-submitted) #Submitted scripts.
 
 #PROJECT DIRECTORIES:
 PATHTOPROJWORKINGDIR=$(echo ${PROJHOME}/${USER}-workingdir) #Working directory.
 PATHTOPROJOUTPUT=$(echo ${PATHTOPROJWORKINGDIR}/output) #Output directory.
 PATHTOPROJORIGINALFILES=$(echo ${PATHTOPROJWORKINGDIR}/original-files) #Original files directory.
+PATHTOPROJSAFE=$(echo ${PATHTOPROJWORKINGDIR}/safe) #Temporary files directory.
 PATHTOPROJTMP=$(echo ${PATHTOPROJWORKINGDIR}/tmp) #Temporary files directory.
 PATHTOPROJEXPORT=$(echo ${PATHTOPROJWORKINGDIR}/export) #Export directory.
 PATHTOPROJTRASH=$(echo ${PATHTOPROJWORKINGDIR}/trash) #Trash directory.
@@ -139,7 +144,13 @@ MYEMAILADDRESS=?????
 #PATH (define directories containing executable files/scripts):
 
 #General:
-export PATH=$PATH:${PATHTOMYSBATCHSCRIPTS}:${PATHTOMYRSCRIPTS}:${PATHTOMYGENERALSCRIPTS}:${PATHTOMYBASHPROFILES}:${PATHTOMYSUBMITTEDSCRIPTS}
+export PATH=$PATH:\
+${PATHTOMYBASHPROFILES}:\
+${PATHTOMYSBATCHSCRIPTS}:\
+${PATHTOMYRSCRIPTS}:\
+${PATHTOMYPYTHONSCRIPTS}:\
+${PATHTOMYGENERALSCRIPTS}:\
+${PATHTOMYSUBMITTEDSCRIPTS}
 
 #Installed applications.
 export PATH=$PATH:$(echo ${PATHTOMYAPPLICATIONS}/?????) #Path to some specific installation.
@@ -187,10 +198,19 @@ alias myscripts='cd ${PATHTOMYSCRIPTS}'
 #Shortcut to temporary files directory.
 alias mytmpdir='cd ${PATHTOMYTMP}' 
 alias projtmp='cd ${PATHTOPROJTMP}'
+#Shortcut to safe directory.
+alias projsafe='cd ${PATHTOPROJSAFE}' 
+alias mysafedir='cd ${PATHTOMYSAFE}' 
+#Shortcut to trash directory.
+alias projtrash='cd ${PATHTOPROJTRASH}' 
+alias mytrashdir='cd ${PATHTOMYTRASH}' 
+#Shortcut to export directory.
+alias projexport='cd ${PATHTOPROJEXPORT}' 
+alias myexportdir='cd ${PATHTOMYEXPORT}' 
 #Shortcut to test directory.
 alias projtest='cd ${PATHTOPROJTEST}' 
-#Shortcut to trash directory.
-alias projtrash='cd ${PATHTOPROJTRASH}'
+alias mytestdir='cd ${PATHTOMYTEST}' 
+
 #Shortcut to specific projects.
 alias proj1='cd ${PATHTOPROJOUTPUT}/?????' 
 
@@ -207,12 +227,14 @@ alias lastjob='history | grep sbatch | tail -n 1'
 alias lastslurm='less $(echo ${PATHTOMYSLURM}/$(ls -Art ${PATHTOMYSLURM}/ | tail -n 1))'
 
 #Other aliases.
-#Run interactive mode for quick/test jobs (Dardel/PDC).
-alias interactivejob='salloc -A ${PROJECT_ID} -p shared -c 1 -t 06:00:00 ' 
 #Log off from all active sessions.
 alias logoffall='pkill -u ${USER}'
 #Full host name.
 alias hostname='hostname -f'
+
+#Project aliases.
+#Run interactive mode for quick/test jobs (Dardel/PDC).
+alias interactivejob='salloc -A ${PROJECT_ID} -p shared -c 1 -t 06:00:00 ' 
 
 ############################################################################
 #FUNCTIONS:
