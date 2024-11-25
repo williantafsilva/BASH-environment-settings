@@ -42,6 +42,16 @@ cd ${HOME}
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/export")
 #mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
 
+#README:
+#Directories in wafds-workingdir:
+#export: Contains copies of files created using toexport-stdout.sh that will be exported.
+#original-files: Contains raw data and original files that should not be modified.
+#output: Contains project-specific directories with processed files and results.
+#safe: Contains files and directories (original, not copies) that are to be temporarily safe from modifications during intermediate steps of a process (or testing). These files should be moved back to their original directory once the process is completed. Files and directories are moved to/from safe using tosafe-stdout.sh and fromsafe-stdout.sh.
+#test: Contains directories and files used for testing commands, scripts, processes, etc. It also contains copies of directories and files created using totest-stdout.sh.
+#tmp: Contains temporary copies of files and directories created using totmp-stdout.sh.
+#trash: Contains files and directories that were delected using totrash-stdout.sh.
+
 ############################################################################
 #INTERNAL FIELD SEPARATOR (IFS):
 
