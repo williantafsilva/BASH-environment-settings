@@ -88,6 +88,64 @@ mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
 
 ## Clone GitHub repositories.
 
-```
+### Configure Git.
 
 ```
+cd ${HOME}
+
+git config --list --show-origin #Check current configuration.
+
+git config --global user.name "<USER NAME>"
+
+git config --global user.email <E-MAIL>
+```
+
+### Set up GitHub authentication via SSH.
+
+- Create SSH key (add "\_github" to the file name when prompted and use no password).
+
+```
+cd ${HOME}
+
+ssh-keygen -t ed25519 -C "<E-MAIL>" 
+```
+
+- Start SSH agent in the background.
+
+```
+eval "$(ssh-agent -s)"
+```
+
+- Add your SSH private key to the ssh-agent.
+
+```
+ssh-add ~/.ssh/id_ed25519_github
+```
+
+- Verify that you have a private key generated and loaded into SSH.
+
+```
+ssh-add -l -E sha256
+```
+
+- Add the SSH public key to your account on GitHub (for authetication) (https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
+- Verify you can connect to GitHub.
+
+```
+ssh -T git@github.com
+```
+
+- Verify that list of SSH keys on GitHub matches the output from the ssh-add command.
+
+```
+ssh-add -l -E md5
+```
+
+- Clone GitHub depositories (first time only).
+
+```
+git clone git@github.com:williantafsilva/BASH-environment-settings.git
+```
+
+
