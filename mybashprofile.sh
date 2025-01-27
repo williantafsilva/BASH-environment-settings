@@ -16,8 +16,8 @@
 CURRENTLOCATION=$(echo $(readlink -f .)) 
 
 #Home directories.
-HOME=????? #Personal home directory.
-PROJHOME=????? #Project home directory.
+HOME=<?????> #Personal home directory.
+PROJHOME=<?????> #Project home directory.
 
 cd ${HOME}
 
@@ -109,9 +109,9 @@ REFGAL7B=$(echo ${PATHTOPROJORIGINALFILES}/referencegenomes/Gallus_gallus.bGalGa
 REFHOMOGRCh38=$(echo ${PATHTOPROJORIGINALFILES}/referencegenomes/Homo_sapiens.GRCh38.dna.toplevel.fa) #Reference genome (Homo sapiens).
 
 #PROJECT VARAIBLES:
-PROJECT_ID=????? #Compute project ID.
+PROJECT_ID=<?????> #Compute project ID.
 PARTITION_DEFAULT=shared
-MYEMAIL=?????
+MYEMAIL=<?????>
 
 ############################################################################
 #PATH (define directories containing executable files/scripts):
@@ -123,7 +123,7 @@ ${PATHTOMYSCRIPTS}:\
 ${PATHTOMYSUBMITTEDSCRIPTS}
 
 #Installed applications.
-export PATH=$PATH:$(echo ${PATHTOMYAPPLICATIONS}/?????) #Path to some specific installation.
+export PATH=$PATH:$(echo ${PATHTOMYAPPLICATIONS}/<?????>) #Path to some specific installation.
 export R_LIBS_USER=$(echo ${PATHTOMYAPPLICATIONS}/R/library) #Path to local R applications.
 
 ############################################################################
@@ -181,7 +181,7 @@ alias projtest='cd ${PATHTOPROJTEST}'
 alias mytestdir='cd ${PATHTOMYTEST}' 
 
 #Shortcut to specific projects.
-alias proj1='cd ${PATHTOPROJOUTPUT}/?????' 
+alias proj1='cd ${PATHTOPROJOUTPUT}/<?????>' 
 
 #SLURM information.
 #Shortcut to currently running jobs.
