@@ -2,7 +2,7 @@
 
 ## Important directories
 
-- Working directory (${PROJHOME}/USER-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
+- Working directory (${PROJHOME}/${USER}-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
 
 - Scripts directory (HOME/myscripts): Directory where USER will have all their scripts (cloned from GitHub, or otherwise). This directory should be in the personal directory of USER to avoid loss of script files in the event of project discontinuation.
 
