@@ -4,13 +4,15 @@
 
 - Raw data should be organized within the ${PROJHOME}/original-files directory.
 
-All our raw data and original files need to be moved to a subdirectory called original-files, which is located in the storage project directory (PROJHOME=/cfs/klemming/projects/supr/sllstore2017078), so if the raw data you are using is not in ${PROJHOME}/original-files and you are the only one using that data set, you can move it to ${PROJHOME}/original-files. 
+All our raw data and original files need to be moved to a subdirectory called original-files, which is located in the storage project directory (PROJHOME=/cfs/klemming/projects/supr/sllstore2017078), so if the raw data you are using are not in ${PROJHOME}/original-files and you are the only one using that data set, you can move it to a subdirectory in ${PROJHOME}/original-files. 
 
 - Create README files for every directory and keep it updated.
 
 Make a habit of creating README files for every directory you create and keep those README files updated with all the information about the data the directory contains, so that future users can understand what the directory contains and how the data was obtained, without having to find that information elsewhere.
 
-- 
+- Keep your activity within your ${PROJHOME}/${USER}-workingdir directory.
+
+- Keep copies of the scripts used to process data in the same directory where the corresponding output data was stored and add notes to the README file.
 
 ## BASH profile
 
