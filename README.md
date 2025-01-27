@@ -98,7 +98,7 @@ mkdir $(echo "${PROJHOME}/${USER}-workingdir/export")
 mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
 ```
 
-## Import scripts from Github
+## Import scripts from GitHub
 
 ### Configure Git
 
