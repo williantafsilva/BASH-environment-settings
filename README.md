@@ -142,10 +142,37 @@ ssh -T git@github.com
 ssh-add -l -E md5
 ```
 
-- Clone GitHub depositories (first time only).
+### Clone GitHub repositories (first time only).
 
 ```
 git clone git@github.com:williantafsilva/BASH-environment-settings.git
 ```
 
+### Update GitHub repositories.
 
+Recommendation: Create a script (e.g., githubsync.sh) to update all your GitHub repositories with a single command call.
+
+- Start SSH agent in the background.
+
+```
+eval "$(ssh-agent -s)"
+```
+
+- Add your SSH private key to the ssh-agent.
+
+```
+ssh-add ~/.ssh/id_ed25519_github
+```
+
+- Go to the repository directory cloned from GitHub.
+
+```
+cd <PATH TO REPOSITORY DIRECTORY>
+```
+
+- Pull repository from GitHub.
+
+```
+git stash
+git pull origin
+```
