@@ -1,5 +1,13 @@
 # BASH environment settings
 
+## BASH profile
+
+- Add the path to your BASH profile to your ~/.bashrc or ~/.bash_profile file:
+
+```
+source <PATH TO mybashprofile.sh> #Read mybashprofile.sh whenever you log in.
+```
+
 ## Important directories
 
 - Working directory (${PROJHOME}/${USER}-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
