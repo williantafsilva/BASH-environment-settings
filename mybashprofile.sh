@@ -21,37 +21,6 @@ PROJHOME=????? #Project home directory.
 
 cd ${HOME}
 
-#Create the following directories:
-#mkdir $(echo "${HOME}/myscripts")
-#mkdir $(echo "${HOME}/myscripts/scripts-submitted")
-#mkdir $(echo "${HOME}/myslurm")
-#mkdir $(echo "${HOME}/myoutput")
-#mkdir $(echo "${HOME}/mysafe")
-#mkdir $(echo "${HOME}/mytrash")
-#mkdir $(echo "${HOME}/myapplications")
-#mkdir $(echo "${HOME}/mytmp")
-#mkdir $(echo "${HOME}/myexport")
-#mkdir $(echo "${HOME}/mytest")
-
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/output")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/original-files")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/safe")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/trash")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/tmp")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/export")
-#mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
-
-#README:
-#Directories in wafds-workingdir:
-#export: Contains copies of files created using toexport-stdout.sh that will be exported.
-#original-files: Contains raw data and original files that should not be modified.
-#output: Contains project-specific directories with processed files and results.
-#safe: Contains files and directories (original, not copies) that are to be temporarily safe from modifications during intermediate steps of a process (or testing). These files should be moved back to their original directory once the process is completed. Files and directories are moved to/from safe using tosafe-stdout.sh and fromsafe-stdout.sh.
-#test: Contains directories and files used for testing commands, scripts, processes, etc. It also contains copies of directories and files created using totest-stdout.sh.
-#tmp: Contains temporary copies of files and directories created using totmp-stdout.sh.
-#trash: Contains files and directories that were delected using totrash-stdout.sh.
-
 ############################################################################
 #INTERNAL FIELD SEPARATOR (IFS):
 
@@ -116,21 +85,16 @@ PATHTOMYTEST=$(echo ${HOME}/mytest) #Test directory.
 PATHTOMYAPPLICATIONS=$(echo ${HOME}/myapplications) #My applications.
 PATHTOMYSLURM=$(echo ${HOME}/myslurm) #SLURM directory.
 MYSLURMFILE="${PATHTOMYSLURM}/slurm-%J.out" #SLURM file.
-PATHTOMYSCRIPTS=$(echo ${HOME}/myscripts) #My scripts.
-PATHTOMYBASHPROFILES=$(echo ${PATHTOMYSCRIPTS}/bashprofiles) #Bash profiles. Clone from GitHub.
-PATHTOMYSBATCHSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-sbatch) #SBATCH scripts. Clone from GitHub.
-PATHTOMYRSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-R) #R scripts. Clone from GitHub.
-PATHTOMYPYTHONSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-Python) #Python scripts. Clone from GitHub.
-PATHTOMYGENERALSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-stdout) #General scripts. Clone from GitHub.
-PATHTOMYWORKFLOW=$(echo ${PATHTOMYSCRIPTS}/bioinformatics-workflow) #Bioinformatics workflow. Clone from GitHub.
-PATHTOMYTMPSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-tmp) #Temporary scripts. Clone from GitHub.
-PATHTOMYSUBMITTEDSCRIPTS=$(echo ${PATHTOMYSCRIPTS}/scripts-submitted) #Submitted scripts.
+PATHTOMYSCRIPTSDIR=$(echo ${HOME}/myscripts) #My scripts.
+PATHTOMYBASHPROFILES=$(echo ${PATHTOMYSCRIPTSDIR}/bashprofiles) #Bash profiles. Clone from GitHub.
+PATHTOMYSCRIPTS=$(echo ${PATHTOMYSCRIPTSDIR}/scripts) #Scripts. Clone from GitHub.
+PATHTOMYSUBMITTEDSCRIPTS=$(echo ${PATHTOMYSCRIPTSDIR}/scripts-submitted) #Submitted scripts.
 
 #PROJECT DIRECTORIES:
 PATHTOPROJWORKINGDIR=$(echo ${PROJHOME}/${USER}-workingdir) #Working directory.
 PATHTOPROJOUTPUT=$(echo ${PATHTOPROJWORKINGDIR}/output) #Output directory.
 PATHTOPROJORIGINALFILES=$(echo ${PATHTOPROJWORKINGDIR}/original-files) #Original files directory.
-PATHTOPROJSAFE=$(echo ${PATHTOPROJWORKINGDIR}/safe) #Temporary files directory.
+PATHTOPROJSAFE=$(echo ${PATHTOPROJWORKINGDIR}/safe) #Safe directory.
 PATHTOPROJTMP=$(echo ${PATHTOPROJWORKINGDIR}/tmp) #Temporary files directory.
 PATHTOPROJEXPORT=$(echo ${PATHTOPROJWORKINGDIR}/export) #Export directory.
 PATHTOPROJTRASH=$(echo ${PATHTOPROJWORKINGDIR}/trash) #Trash directory.
@@ -146,9 +110,8 @@ REFHOMOGRCh38=$(echo ${PATHTOPROJORIGINALFILES}/referencegenomes/Homo_sapiens.GR
 
 #PROJECT VARAIBLES:
 PROJECT_ID=????? #Compute project ID.
-PARTITION_DEFAULT_UPPMAX=core
-PARTITION_DEFAULT_PDC=shared
-MYEMAILADDRESS=?????
+PARTITION_DEFAULT=shared
+MYEMAIL=?????
 
 ############################################################################
 #PATH (define directories containing executable files/scripts):
@@ -156,10 +119,7 @@ MYEMAILADDRESS=?????
 #General:
 export PATH=$PATH:\
 ${PATHTOMYBASHPROFILES}:\
-${PATHTOMYSBATCHSCRIPTS}:\
-${PATHTOMYRSCRIPTS}:\
-${PATHTOMYPYTHONSCRIPTS}:\
-${PATHTOMYGENERALSCRIPTS}:\
+${PATHTOMYSCRIPTS}:\
 ${PATHTOMYSUBMITTEDSCRIPTS}
 
 #Installed applications.
@@ -169,9 +129,8 @@ export R_LIBS_USER=$(echo ${PATHTOMYAPPLICATIONS}/R/library) #Path to local R ap
 ############################################################################
 #EXECUTABLE FILES (automatically make all .sh files in the directory executable):
 
-chmod -R +x $(find ${PATHTOMYSCRIPTS} -name "*.sh")
-chmod -R +x $(find ${PATHTOMYSCRIPTS} -name "*.R")
-chmod -R +x $(find ${PATHTOMYSCRIPTS} -name "*.py")
+chmod -R +x $(find ${PATHTOMYSCRIPTSDIR} -name "*.sh")
+chmod -R +x $(find ${PATHTOMYSCRIPTSDIR} -name "*.R")
 
 ############################################################################
 #ALIASES:
@@ -251,8 +210,6 @@ alias interactivejob='salloc -A ${PROJECT_ID} -p shared -c 1 -t 06:00:00 '
 
 function mymodules {
     echo "---> Loading modules ..."
-    echo "---> module load UPPMAX/1.0.0"
-    module load UPPMAX/1.0.0
     echo "---> module load PDC/23.12"
     module load PDC/23.12
     echo "---> module load bioinfo-tools"
@@ -263,8 +220,12 @@ function mymodules {
     module load vcftools
     echo "---> module load samtools"
     module load samtools
-    #echo "---> module load GATK"
-    #module load GATK
+    echo "---> module load bamtools"
+    module load bamtools
+    echo "---> module load star/2.7.11a"
+    module load star/2.7.11a
+    echo "---> module load GATK"
+    module load GATK
     #echo "---> module load clustalo/1.2.4"
     #module load clustalo/1.2.4
     #echo "---> module load bowtie2/2.5.2"
