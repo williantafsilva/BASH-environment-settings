@@ -14,6 +14,8 @@ Make a habit of creating README files for every directory you create and keep th
 
 - Keep copies of the scripts used to process data in the same directory where the corresponding output data was stored and add notes to the README file.
 
+- These tools can help you manage your scripts and synchronize your local machine and your GitHub repositories: GitHub Desktop (https://github.com/apps/desktop), Sublime Text (https://www.sublimetext.com/), Visual Studio Code (https://code.visualstudio.com/).
+
 ## BASH profile
 
 - Edit mybashprofile.sh, substituting <?????> with your specific information.
