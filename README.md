@@ -156,6 +156,14 @@ ssh-add -l -E md5
 
 ### Clone GitHub repositories (first time only)
 
+- Go to the directory where the repository clone will be stored.
+
+```
+cd ${PATHTOMYSCRIPTSDIR}
+```
+
+- Import repository.
+
 ```
 git clone git@github.com:williantafsilva/BASH-environment-settings.git
 ```
