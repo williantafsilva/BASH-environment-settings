@@ -1,6 +1,6 @@
 # BASH environment settings
 
-## Create important directories.
+## Important directories
 
 - Working directory (PROJHOME/USER-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
 
@@ -24,7 +24,7 @@
 
 - Test directory (PROJHOME/USER-workingdir/test): Directory with files and directories used for testing commands, scripts, processes, etc. It also contains copies of directories and files created using totest-stdout.sh.
 
-### Personal directory ($HOME):
+### Personal directory ($HOME)
 
 ```
 #Scripts directory: this is where your github repositories will be cloned into.
@@ -58,7 +58,7 @@ mkdir $(echo "${HOME}/myexport")
 mkdir $(echo "${HOME}/mytest")
 ```
 
-### Project directory ($PROJHOME):
+### Project directory ($PROJHOME)
 
 ```
 #Project working directory: 
@@ -86,9 +86,9 @@ mkdir $(echo "${PROJHOME}/${USER}-workingdir/export")
 mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
 ```
 
-## Clone GitHub repositories.
+## Clone GitHub repositories
 
-### Configure Git.
+### Configure Git
 
 ```
 cd ${HOME}
@@ -100,7 +100,7 @@ git config --global user.name "<USER NAME>"
 git config --global user.email <E-MAIL>
 ```
 
-### Set up GitHub authentication via SSH.
+### Set up GitHub authentication via SSH
 
 - Create SSH key (add "\_github" to the file name when prompted and use no password).
 
@@ -142,13 +142,13 @@ ssh -T git@github.com
 ssh-add -l -E md5
 ```
 
-### Clone GitHub repositories (first time only).
+### Clone GitHub repositories (first time only)
 
 ```
 git clone git@github.com:williantafsilva/BASH-environment-settings.git
 ```
 
-### Update GitHub repositories.
+### Update GitHub repositories
 
 Recommendation: Create a script (e.g., githubsync.sh) to update all your GitHub repositories with a single command call.
 
