@@ -187,6 +187,8 @@ alias lastslurm='less $(echo ${PATHTOMYSLURM}/$(ls -Art ${PATHTOMYSLURM}/ | tail
 alias logoffall='pkill -u ${USER}'
 #Full host name.
 alias hostname='hostname -f'
+#Project news flash.
+alias newsflash='less +G ${PROJHOME}/NEWSFLASH.txt'
 
 #Project aliases.
 #Run interactive mode for quick/test jobs (Dardel/PDC).
