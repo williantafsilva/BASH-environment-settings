@@ -16,16 +16,6 @@ Make a habit of creating README files for every directory you create and keep th
 
 - These tools can help you manage your scripts and synchronize your local machine and your GitHub repositories: GitHub Desktop (https://github.com/apps/desktop), Sublime Text (https://www.sublimetext.com/), Visual Studio Code (https://code.visualstudio.com/).
 
-## BASH profile
-
-- Edit mybashprofile.sh, substituting <?????> with your specific information.
-
-- Add the path to your BASH profile to your ~/.bashrc or ~/.bash_profile file:
-
-```
-source <PATH TO mybashprofile.sh> #Read mybashprofile.sh whenever you log in.
-```
-
 ## Important directories
 
 - Create the following directories:
@@ -112,6 +102,16 @@ mkdir $(echo "${PROJHOME}/${USER}-workingdir/export")
 
 #Project test directory: 
 mkdir $(echo "${PROJHOME}/${USER}-workingdir/test")
+```
+
+## BASH profile
+
+- Edit mybashprofile.sh, substituting <?????> with your specific information.
+
+- Add the path to your BASH profile to your ~/.bashrc or ~/.bash_profile file:
+
+```
+source <PATH TO mybashprofile.sh> #Read mybashprofile.sh whenever you log in.
 ```
 
 ## Import scripts from GitHub
