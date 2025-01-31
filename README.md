@@ -32,7 +32,7 @@ Make a habit of creating README files for every directory you create and keep th
 
 	- Original files directory (${PROJHOME}/${USER}-workingdir/original-files): Directory with raw data and original files that should not be modified.
 
-	- Output directory (${PROJHOME}/${USER}-workingdir/output): Directory where all USER's output will (processed files and results) be stored.
+	- Output directory (${PROJHOME}/${USER}-workingdir/output): Directory where all USER's output (processed files and results) will be stored.
 
 	- Trash directory (${PROJHOME}/${USER}-workingdir/trash): Directory with files and directories that were deleted using totrash-stdout.sh. The trash directory needs to be cleared regularly to free up disk space.
 
