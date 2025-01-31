@@ -212,3 +212,43 @@ cd <PATH TO REPOSITORY DIRECTORY>
 git stash
 git pull origin
 ```
+
+## Useful scripts
+
+Some of the scripts available here require the definition of the following environment variables (mybashprofile.sh): PATHTOPROJSAFE, PATHTOMYSLURM, PATHTOPROJEXPORT, PATHTOPROJTEST, PATHTOPROJTMP, PATHTOPROJTRASH.
+
+- countfiles-stdout.sh: Count number of files in a directory.
+
+- countlines-stdout.sh: Count the number of lines in each file.
+
+- cp-stdout.sh: Copy files to a target directory.
+
+- dirstructure-stdout.sh: Show directory hierarchy.
+
+- joblog-stdout.sh: View log file (in ${PATHTOMYSLURM}) of an SBATCH job.
+
+- ls-stdout.sh: List files in input directory.
+
+- mkdir-stdout.sh: Create a directory with a pre-filled README.txt file and log the creation of the directory.
+
+- mkREADME-stdout.sh: Create a README.txt file with a header.
+
+- mv-stdout.sh: Move or change name of input file.
+
+- njobs-stdout.sh: Retrieve the number of pending, running, completed, failed and cancelled sbatch jobs submitted by the user.
+
+- searchwithinfiles-stdout.sh: Search files that contain a specific string.
+
+- toexport-stdout.sh: Copy files to project export directory (${PATHTOPROJEXPORT}).
+
+- toREADME-stdout.sh: Add note to README.txt file.
+
+- tosafe-stdout.sh: Move target files/directories TO the project safe directory (${PATHTOPROJSAFE}).
+
+- fromsafe-stdout.sh: Move target files/directories FROM the project safe directory (${PATHTOPROJSAFE}).
+
+- totest-stdout.sh: Copy files to project test directory (${PATHTOPROJTEST}).
+
+- totmp-stdout.sh: Copy files to project tmp directory (${PATHTOPROJTMP}).
+
+- totrash-stdout.sh: Move input files to project trash directory (${PATHTOPROJTRASH}).
