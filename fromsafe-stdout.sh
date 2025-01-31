@@ -7,7 +7,7 @@
 ##SCRIPT DESCRIPTION:
 
 ##Description:
-##Move target files/directories to the project safe directory (${PATHTOPROJSAFE}).
+##Move target files/directories from the project safe directory (${PATHTOPROJSAFE}).
 
 ##Input $1: Output location
 ##Input $2: SAFE subdirectory name (or safe tag).
