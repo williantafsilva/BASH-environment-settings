@@ -39,7 +39,7 @@ less ~/.ssh/id-ed25519-pdc.pub
 
 - Open PDC Login Portal (https://loginportal.pdc.kth.se/) in an internet browser and log in (authenticate your identity to PDC).
 
-- Select "Add new key".
+- Select **Add new key**.
 
 - Paste your SSH public key.
 
@@ -51,7 +51,7 @@ less ~/.ssh/id-ed25519-pdc.pub
 
 - Open the terminal.
 
-- Log into Dardel (change USERNAME for your Dardel username).
+- Log into Dardel (change **USERNAME** for your Dardel username).
 
 ```
 ssh USERNAME@dardel.pdc.kth.se
