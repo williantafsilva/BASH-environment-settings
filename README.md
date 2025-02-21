@@ -51,7 +51,7 @@ less ~/.ssh/id-ed25519-pdc.pub
 
 1. Open the terminal.
 
-2. Log into Dardel (change **USERNAME** for your Dardel username).
+2. Log into Dardel (change **\<USERNAME\>** for your Dardel username).
 
 ```
 ssh USERNAME@dardel.pdc.kth.se
@@ -77,8 +77,28 @@ ssh USERNAME@dardel.pdc.kth.se
 
 1. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
 
-2. 
+2. Create directories in your **HOME** directory.
 
+```
+mkdir $(echo "${HOME}/myscripts") #Scripts directory.
+mkdir $(echo "${HOME}/myscripts/scripts-submitted") #Submitted scripts directory.
+mkdir $(echo "${HOME}/myoutput") #Output directory.
+mkdir $(echo "${HOME}/myapplications") #Local applications directory.
+mkdir $(echo "${HOME}/myslurm") #SLURM directory.
+mkdir $(echo "${HOME}/mysafe") #Safe directory.
+mkdir $(echo "${HOME}/mytrash") #Trash directory.
+mkdir $(echo "${HOME}/mytmp") #tmp directory.
+mkdir $(echo "${HOME}/myexport") #Export directory.
+mkdir $(echo "${HOME}/mytest") #Test directory.
+```
+
+3. Create directories in your **PROJECT** directory.
+
+```
+PROJHOME=
+
+
+```
 
 
 ## General recommendations
