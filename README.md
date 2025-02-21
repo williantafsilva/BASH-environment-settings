@@ -54,7 +54,7 @@ less ~/.ssh/id-ed25519-pdc.pub
 2. Log into Dardel (change **\<USERNAME\>** for your Dardel username).
 
 ```
-ssh USERNAME@dardel.pdc.kth.se
+ssh <USERNAME>@dardel.pdc.kth.se
 ```
 
 3. Now you have access to Dardel/PDC via the terminal.
@@ -75,33 +75,62 @@ ssh USERNAME@dardel.pdc.kth.se
 
 ## 6. Create important directories.
 
-1. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
+1. Read about these directories before creating them.
 
-2. Create directories in your **HOME** directory.
+	- Personal directories: ?????
 
-```
-mkdir $(echo "${HOME}/myscripts") #Scripts directory.
-mkdir $(echo "${HOME}/myscripts/scripts-submitted") #Submitted scripts directory.
-mkdir $(echo "${HOME}/myoutput") #Output directory.
-mkdir $(echo "${HOME}/myapplications") #Local applications directory.
-mkdir $(echo "${HOME}/myslurm") #SLURM directory.
-mkdir $(echo "${HOME}/mysafe") #Safe directory.
-mkdir $(echo "${HOME}/mytrash") #Trash directory.
-mkdir $(echo "${HOME}/mytmp") #tmp directory.
-mkdir $(echo "${HOME}/myexport") #Export directory.
-mkdir $(echo "${HOME}/mytest") #Test directory.
-```
+		- dsgdsgsfg
 
-3. Create directories in your **PROJECT** directory.
+		- dsfdg
+
+	- Storage project directory: 
+
+	- Working directory (${PROJHOME}/${USER}-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
+
+2. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
+
+3. Create directories in your **HOME** directory.
 
 ```
-PROJHOME=
-
-
+mkdir -p "${HOME}/original-files" #Original files directory.
+mkdir -p "${HOME}/myscripts" #Scripts directory.
+mkdir -p "${HOME}/myscripts/scripts-submitted" #Submitted scripts directory.
+mkdir -p "${HOME}/myoutput" #Output directory.
+mkdir -p "${HOME}/myapplications" #Local applications directory.
+mkdir -p "${HOME}/myslurm" #SLURM directory.
+mkdir -p "${HOME}/mysafe" #Safe directory.
+mkdir -p "${HOME}/mytrash" #Trash directory.
+mkdir -p "${HOME}/mytmp" #tmp directory.
+mkdir -p "${HOME}/myexport" #Export directory.
+mkdir -p "${HOME}/mytest" #Test directory.
 ```
 
+4. Define your PDC storage project directory (change **\<PATH TO PDC PROJECT DIRECTORY\>** for the full path to your PDC storage project directory).
 
-## General recommendations
+```
+PROJHOME=<PATH TO PDC PROJECT DIRECTORY>
+```
+
+5. Create directories in your PDC storage project directory.
+
+```
+mkdir -p "${PROJHOME}/${USER}-workingdir" #Project working directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/original-files" #Project original files directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/scripts" #Project scripts directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/scripts-submitted" #Project submitted scripts directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/output" #Project output directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/applications" #Project local applications directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/slurm" #Project local applications directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/safe" #Project safe directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/trash" #Project trash directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/tmp" #Project TMP directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/export" #Project export directory.
+mkdir -p "${PROJHOME}/${USER}-workingdir/test" #Project test directory.
+```
+
+## 
+
+## Important recommendations.
 
 - Raw data should be organized within the ${PROJHOME}/original-files directory.
 
@@ -116,6 +145,11 @@ Make a habit of creating README files for every directory you create and keep th
 - Keep copies of the scripts used to process data in the same directory where the corresponding output data was stored and add notes to the README file.
 
 - These tools can help you manage your scripts and synchronize your local machine and your GitHub repositories: GitHub Desktop (https://github.com/apps/desktop), Sublime Text (https://www.sublimetext.com/), Visual Studio Code (https://code.visualstudio.com/).
+
+
+
+
+
 
 ## Important directories
 
