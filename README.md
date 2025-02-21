@@ -77,13 +77,15 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 1. Read about these directories before creating them.
 
-	- Personal directories: ?????
+	- **HOME directory** (`echo ${HOME}`) is **USER-specific** and should be used to store files that are not linked to any particular storage or compute project. If the user leaves a PDC storage project, the user will still have access to the files in their **HOME** directory.
+
+	- **HOME subdirectories**:
 
 		- dsgdsgsfg
 
 		- dsfdg
 
-	- Storage project directory: 
+	- **Storage project directory** contains all
 
 	- Working directory (${PROJHOME}/${USER}-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
 
@@ -92,7 +94,7 @@ ssh <USERNAME>@dardel.pdc.kth.se
 3. Create directories in your **HOME** directory.
 
 ```
-mkdir -p "${HOME}/original-files" #Original files directory.
+mkdir -p "${HOME}/myoriginalfiles" #Original files directory.
 mkdir -p "${HOME}/myscripts" #Scripts directory.
 mkdir -p "${HOME}/myscripts/scripts-submitted" #Submitted scripts directory.
 mkdir -p "${HOME}/myoutput" #Output directory.
@@ -132,7 +134,7 @@ mkdir -p "${PROJHOME}/${USER}-workingdir/test" #Project test directory.
 
 ## Important recommendations.
 
-- Raw data should be organized within the ${PROJHOME}/original-files directory.
+1. Raw data should be organized within the ${PROJHOME}/original-files directory.
 
 All our raw data and original files need to be moved to a subdirectory called original-files, which is located in the storage project directory (PROJHOME=/cfs/klemming/projects/supr/sllstore2017078), so if the raw data you are using are not in ${PROJHOME}/original-files and you are the only one using that data set, you can move it to a subdirectory in ${PROJHOME}/original-files. 
 
