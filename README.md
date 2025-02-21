@@ -2,7 +2,7 @@
 
 ## Get a SUPR NAISS account.
 
-- If you don not have a SUPR NAISS account yet, register at https://supr.naiss.se/.
+If you don not have a SUPR NAISS account yet, register at https://supr.naiss.se/
 
 ## Create an SSH key and add it to your SSH config file.
 
@@ -57,9 +57,11 @@ less ~/.ssh/id-ed25519-pdc.pub
 ssh USERNAME@dardel.pdc.kth.se
 ```
 
+3. Now you have access to Dardel/PDC via the terminal.
+
 ## Set up ThinLinc.
 
-1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook: https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
+1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
 
 2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
 
@@ -68,6 +70,12 @@ ssh USERNAME@dardel.pdc.kth.se
 4. In **Key**, select your private SSH key file (used to log into Dardel/PDC).
 
 5. Click **Connect** and, if prompted a password, type in the password you used when you created you SSH key.
+
+6. Now you have access to Dardel/PDC via ThinLinc.
+
+## Create important directories.
+
+1. Log into Dardel/PDC in a terminal (via ssh) or 
 
 
 
