@@ -77,7 +77,11 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 1. Read about these directories before creating them.
 
-	- **HOME directory** (`echo ${HOME}`) is **USER-specific** and should be used to store files that are not linked to any particular storage or compute project. If the user leaves a PDC storage project, the user will still have access to the files in their **HOME** directory.
+	- **HOME directory** is **USER-specific** and should be used to store files that are not linked to any particular storage or compute project. If the user leaves a PDC storage project, the user will still have access to the files in their **HOME** directory.
+
+		```
+		echo ${HOME}
+		```	
 
 	- **HOME subdirectories**:
 
