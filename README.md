@@ -85,7 +85,7 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 	- **HOME subdirectories**:
 
-		- dsgdsgsfg
+		- ${HOME}/myscripts: 
 
 		- dsfdg
 
