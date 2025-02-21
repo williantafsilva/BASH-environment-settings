@@ -6,9 +6,9 @@
 
 ## Create an SSH key and add it to your SSH config file.
 
-- Open your terminal.
+1. Open your terminal.
 
-- Create an ~/.shh directory.
+2. Create an ~/.shh directory.
 
 ```
 cd ${HOME}
@@ -16,13 +16,13 @@ mkdir -p .ssh
 chmod 700 ~/.ssh
 ```
 
-- Generate an SSH key.
+3. Generate an SSH key.
 
 ```
 ssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-pdc
 ```
 
-- Add your SSH key to your SSH configuration file.
+4. Add your SSH key to your SSH configuration file.
 
 ```
 echo "Host dardel.pdc.kth.se
@@ -31,27 +31,27 @@ echo "Host dardel.pdc.kth.se
 
 ## Register your SSH key on PDC Login Portal.
 
-- Open your SSH public key, select everything and copy it to the clipboard.
+1. Open your SSH public key, select everything and copy it to the clipboard.
 
 ```
 less ~/.ssh/id-ed25519-pdc.pub
 ```
 
-- Open PDC Login Portal (https://loginportal.pdc.kth.se/) in an internet browser and log in (authenticate your identity to PDC).
+2. Open PDC Login Portal (https://loginportal.pdc.kth.se/) in an internet browser and log in (authenticate your identity to PDC).
 
-- Select **Add new key**.
+3. Select **Add new key**.
 
-- Paste your SSH public key.
+4. Paste your **SSH public key**.
 
-- Choose a key name to identify the computer where your SSH key is located (e.g., Personal computer, My MacBook).
+5. Choose a key name to identify the computer where your SSH key is located (e.g., Personal computer, My MacBook).
 
-- Save.
+6. Save.
 
 ## Log into Dardel/PDC.
 
-- Open the terminal.
+1. Open the terminal.
 
-- Log into Dardel (change **USERNAME** for your Dardel username).
+2. Log into Dardel (change **USERNAME** for your Dardel username).
 
 ```
 ssh USERNAME@dardel.pdc.kth.se
@@ -61,13 +61,15 @@ ssh USERNAME@dardel.pdc.kth.se
 
 1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook: https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
 
-2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel: **dardel-vnc.pdc.kth.se**
+2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
 
-3. Go to Advanced > Options > Security, select Public Key as the Authentication Method and click OK.
+3. Go to **Advanced > Options > Security**, select **Public Key** as the **Authentication Method** and click **OK**.
 
-4. In Key, select your private SSH key file (used to log into Dardel/PDC).
+4. In **Key**, select your private SSH key file (used to log into Dardel/PDC).
 
-5. Click Connect and, if prompted a password, type in the password you used when you created you SSH key.
+5. Click **Connect** and, if prompted a password, type in the password you used when you created you SSH key.
+
+
 
 ## General recommendations
 
