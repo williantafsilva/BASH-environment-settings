@@ -1,10 +1,10 @@
 # BASH environment settings - Dardel/PDC
 
-## Get a SUPR NAISS account.
+## 1. Get a SUPR NAISS account.
 
 If you don not have a SUPR NAISS account yet, register at https://supr.naiss.se/
 
-## Create an SSH key and add it to your SSH config file.
+## 2. Create an SSH key and add it to your SSH config file.
 
 1. Open your terminal.
 
@@ -29,7 +29,7 @@ echo "Host dardel.pdc.kth.se
 	IdentityFile $(readlink -f ~/.ssh/id-ed25519-pdc)" >> ~/.ssh/config
 ```
 
-## Register your SSH key on PDC Login Portal.
+## 3. Register your SSH key on PDC Login Portal.
 
 1. Open your SSH public key, select everything and copy it to the clipboard.
 
@@ -47,7 +47,7 @@ less ~/.ssh/id-ed25519-pdc.pub
 
 6. Save.
 
-## Log into Dardel/PDC.
+## 4. Log into Dardel/PDC.
 
 1. Open the terminal.
 
@@ -59,7 +59,7 @@ ssh USERNAME@dardel.pdc.kth.se
 
 3. Now you have access to Dardel/PDC via the terminal.
 
-## Set up ThinLinc.
+## 5. Set up ThinLinc.
 
 1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
 
@@ -73,9 +73,11 @@ ssh USERNAME@dardel.pdc.kth.se
 
 6. Now you have access to Dardel/PDC via ThinLinc.
 
-## Create important directories.
+## 6. Create important directories.
 
-1. Log into Dardel/PDC in a terminal (via ssh) or 
+1. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
+
+2. 
 
 
 
