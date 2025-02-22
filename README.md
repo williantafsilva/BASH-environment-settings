@@ -195,88 +195,100 @@
 
 ## 7. Configure your BASH profile.
 
-- 7.1. Configuring your BASH profile can considerably facilitate your activity in the terminal. For example, one can define variables that are frequently used so that you do not need to define them every time you need them; one can change the color of different file types so that it is visually easier to find them; one can create aliases (shortcuts) to different commands; and one can add the paths to the scripts directory so that calling them becomes easier. The USER's BASH profile configuration can be defined with commands added to the USER's file *~/.bashrc* (which is located in the USER's **HOME** directory). The file *~/.bashrc* runs every time the USER logs in.
+Configuring your BASH profile can considerably facilitate your activity in the terminal. For example, one can define variables that are frequently used so that you do not need to define them every time you need them; one can change the color of different file types so that it is visually easier to find them; one can create aliases (shortcuts) to different commands; and one can add the paths to the scripts directory so that calling them becomes easier. The USER's BASH profile configuration can be defined with commands added to the USER's *~/.bashrc* file (which is located in the USER's **HOME** directory). The *~/.bashrc* file is loaded every time the USER logs in.
 
-- 7.2. With that in mind and assuming you have all the directories mentioned in step 6, follow the next steps to add predefined useful settings to your BASH profile. These settings are located in the **${PROJHOME}/project-bash-settings** directory and contain important variables, such as **PROJECT_ID**, as well as paths that can be used in scripts (with the shebang **#!/bin/bash -l**) and aliases to useful commands.
+With that in mind and assuming you have all the directories mentioned in step 6, follow the next steps to add predefined useful settings to your BASH profile. These settings are located in the **${PROJHOME}/project-bash-settings** directory and contain important variables, such as *PROJECT_ID*, as well as paths that can be used in scripts (with the shebang *#!/bin/bash -l*), and aliases to useful commands. However, most of these predefined BASH settings can only be used if the directories mentioned in step 6 exist.
 
-- 7.2. Log into Dardel/PDC in a terminal (via ssh).
+- 7.1. Log into Dardel/PDC in a terminal (via ssh).
 
-- 7.3. Run the following commands to add project and user settings to the beginning of your ~/.bashrc file:
+- 7.2. Add project and user settings to the beginning of your *~/.bashrc* file (change **\<PATH TO STORAGE PROJECT HOME DIRECTORY\>** for the full path to your PDC **storage project home directory**, which can be found on https://supr.naiss.se/ or with the command `projinfo`). Adding this `source` call to the beginning of your *~/.bashrc* file allows you to overwrite any variable that has been predefined in the **${PROJHOME}/project-bash-settings** directory by defining such variable after/below the *source* call.
 
-```
-sed -i '1isource "/cfs/klemming/projects/supr/sllstore2017078/project-bash-settings/${USER}-settings.sh"' ~/.bashrc
+	```
+	sed -i '1isource "<PATH TO STORAGE PROJECT HOME DIRECTORY>/project-bash-settings/${USER}-settings.sh"' ~/.bashrc
+	```
 
-source ~/.bashrc
-```
+- 7.3. Load your BASH settings (*~/.bashrc*).
+
+	```
+	source ~/.bashrc
+	```
+
+- 7.4. Check which variables and aliases have been predefined in your BASH settings.
+
+	```
+	less "${PROJHOME}/project-bash-settings/general-settings.sh"
+	less "${PROJHOME}/project-bash-settings/${USER}-settings.sh"
+	```
+
+- 7.5. Ask the storage project manager to add or remove specific variables, aliases or settings.
+
+- 7.6. 
 
 ## 8. Import scripts from GitHub.
 
-- 8.1. 
+?????
 
-- 8.1. Configure Git (change **\<USER NAME\>** for your GitHub username and **\<E-MAIL\>** for your e-mail address).
+- 8.1. Configure Git (change **\<USER NAME\>** for your GitHub username and **\<E-MAIL\>** for your GitHub-associated e-mail address).
 
-```
-cd ${HOME}
-git config --list --show-origin #Check current configuration.
-git config --global user.name "<USER NAME>"
-git config --global user.email <E-MAIL>
-```
+	```
+	cd ${HOME}
+	git config --list --show-origin #Check current configuration.
+	git config --global user.name "<USER NAME>"
+	git config --global user.email <E-MAIL>
+	```
 
-- 8.2. Set up GitHub authentication via SSH
+- 8.2. Create an SSH key (change **\<E-MAIL\>** for your GitHub-associated e-mail address, and use no password when prompted) to access your GitHub account.
 
-- Create SSH key (add "\_github" to the file name when prompted and use no password).
+	```
+	cd ${HOME}
+	ssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-github -C "<E-MAIL>" 
+	```
 
-```
-cd ${HOME}
+- 8.3. Start the SSH agent in the background.
 
-ssh-keygen -t ed25519 -C "<E-MAIL>" 
-```
+	```
+	eval "$(ssh-agent -s)"
+	```
 
-- Start SSH agent in the background.
+- 8.4. Add your SSH private key to the ssh-agent.
 
-```
-eval "$(ssh-agent -s)"
-```
+	```
+	ssh-add ~/.ssh/id-ed25519-github
+	```
 
-- Add your SSH private key to the ssh-agent.
+- 8.5. Verify that you have a private key generated and loaded into SSH.
 
-```
-ssh-add ~/.ssh/id_ed25519_github
-```
+	```
+	ssh-add -l -E sha256
+	```
 
-- Verify that you have a private key generated and loaded into SSH.
+- 8.6. Add the SSH public key to your account on GitHub (for authentication) (https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
-```
-ssh-add -l -E sha256
-```
+- 8.6. Verify you can connect to GitHub.
 
-- Add the SSH public key to your account on GitHub (for authetication) (https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+	```
+	ssh -T git@github.com
+	```
 
-- Verify you can connect to GitHub.
+- 8.7. Verify that the SSH key on GitHub matches the output from the ssh-add command.
 
-```
-ssh -T git@github.com
-```
+	```
+	ssh-add -l -E md5
+	```
 
-- Verify that list of SSH keys on GitHub matches the output from the ssh-add command.
+- 8.8. Clone GitHub repositories (first time only).
 
-```
-ssh-add -l -E md5
-```
+	- 8.8.1. Go to the directory where the repository clone will be stored.
 
-### Clone GitHub repositories (first time only)
+		```
+		cd "${PROJHOME}/${USER}-workingdir/scripts"
+		```
 
-- Go to the directory where the repository clone will be stored.
+	- 8.8.2. Import repository (change **\<GITHUB REPOSITORY SSH ADDRESS\>**, usually in the form *git@github.com:\<GITHUB USER\>/\<GITHUB REPOSITORY NAME\>.git*).
 
-```
-cd ${PATHTOMYSCRIPTSDIR}
-```
-
-- Import repository.
-
-```
-git clone git@github.com:williantafsilva/BASH-environment-settings.git
-```
+		```
+		git clone <GITHUB REPOSITORY SSH ADDRESS>
+		```
 
 ### Update GitHub repositories
 
@@ -291,7 +303,7 @@ eval "$(ssh-agent -s)"
 - Add your SSH private key to the ssh-agent.
 
 ```
-ssh-add ~/.ssh/id_ed25519_github
+ssh-add ~/.ssh/id-ed25519-github
 ```
 
 - Go to the repository directory cloned from GitHub.
