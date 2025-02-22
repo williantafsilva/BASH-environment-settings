@@ -63,6 +63,10 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
 
+	__1. dskjfsa
+
+	__2. jnkadf
+
 2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
 
 3. Go to **Advanced > Options > Security**, select **Public Key** as the **Authentication Method** and click **OK**.
@@ -100,13 +104,13 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 		- **${USER}-workingdir/scripts/scripts-submitted** contains copies of sbatch scripts submitted by the USER. To automatically save a copy of the submitted scripts, the USER needs to write sbatch scripts including the command `cat $0 > <PATH TO SUBMITTED SCRIPTS DIRECTORY>/job${SLURM_JOB_ID}.sh`, changing **\<PATH TO SUBMITTED SCRIPTS DIRECTORY\>** for the full path to this directory.
 
-		- **${USER}-workingdir/output**: 
+		- **${USER}-workingdir/output** contains all the USER's output (processed files and results).
 
 		- **${USER}-workingdir/applications** contains the USER's installations of softwares that are not available through the cluster.
 
 		- **${USER}-workingdir/slurm** contains slurm log files from project-related sbatch jobs submitted by the USER.
 
-		- **${USER}-workingdir/safe**: 
+		- **${USER}-workingdir/safe** contains files and directories (original, not copies) that need to be temporarily put aside from their original location so that the USER can perform operations in their original location without risking modifying or deleting those files. These files should be moved back to their original location as soon as possible. To facilitate moving files to/from **safe**, follow step use the scripts tosafe-stdout.sh and fromsafe-stdout.sh.
 
 		- **${USER}-workingdir/trash**: 
 
