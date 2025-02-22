@@ -75,26 +75,46 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 ## 6. Create important directories.
 
-1. Read about these directories before creating them.
+1. Read about these directories before creating them. 
 
-	- **User's HOME directory** is **USER-specific** and should be used to store files that are not linked to any particular storage or compute project. If the user leaves a PDC storage project, the user will still have access to the files in their **user's HOME** directory.	
+	- USER's **HOME** directory is USER-specific and should be used to store files that are not linked to any particular storage or compute project. If the USER leaves a PDC storage project, the USER will still have access to the files in their USER's **HOME** directory.	
 
-	- **Storage project home directory** contains all the files linked to the specific project. Many users have access to the project storage directory, so it is important to have the following subdirectories:
+	- **Storage project home directory** contains all the files linked to the specific project. Many USERS have access to the project storage directory, so it is important to have the following subdirectories:
 
-		- **original-files** (storage project subdirectory) contains all the raw data that will be shared among members of the project. This subdirectory will be created by the storage project manager.
+		- **original-files** (storage project subdirectory) contains all the raw data that will be shared among members of the project. This subdirectory will be created by the storage project manager. Do not modify any of the files within the **original-files** directory unless you receive permission from the storage manager.
 
-		- **project-bash-settings** (storage project subdirectory) contains shared scripts and user-specific bash settings. This subdirectory will be created by the storage project manager. Do not modify any of the files within the **project-bash-settings** directory unless you receive permission from the storage manager.
+		- **project-bash-settings** (storage project subdirectory) contains shared scripts and USER-specific bash settings. This subdirectory will be created by the storage project manager. Do not modify any of the files within the **project-bash-settings** directory unless you receive permission from the storage manager.
 
-		- **${USER}-workingdir** (storage project subdirectory) contains all the files produced by the user. All your activity should be restricted to your working directory. Never create files or directories outside your working directory unless you receive permission from the storage project manager.
+		- **${USER}-workingdir** (storage project subdirectory) contains all the files produced by the USER. All your activity should be restricted to your working directory. This subdirectory will be created by the storage project manager. Never create files or directories **outside** your working directory unless you receive permission from the storage project manager.
 
 	```
-	#Find the path to your HOME directory and your storage project home directory.
+	#Find the path to your USER's HOME directory and your storage project home directory.
 	projinfo
 	```
 
-	- Important subdirectories to be created:
+	- Important **${USER}-workingdir** subdirectories to be created by the USER:
 
-		- **${USER}-workingdir** (project subdirectory): 
+		- **${USER}-workingdir/original-files**: 
+
+		- **${USER}-workingdir/scripts**: 
+
+		- **${USER}-workingdir/scripts-submitted**: 
+
+		- **${USER}-workingdir/output**: 
+
+		- **${USER}-workingdir/applications**: 
+
+		- **${USER}-workingdir/slurm**: 
+
+		- **${USER}-workingdir/safe**: 
+
+		- **${USER}-workingdir/trash**: 
+
+		- **${USER}-workingdir/tmp**: 
+
+		- **${USER}-workingdir/export**: 
+
+		- **${USER}-workingdir/test**: 
 
 	- Working directory (${PROJHOME}/${USER}-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
 
