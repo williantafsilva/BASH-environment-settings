@@ -2,13 +2,13 @@
 
 ## 1. Get a SUPR NAISS account.
 
-1.1. If you don not have a SUPR NAISS account yet, register at https://supr.naiss.se/
+- 1.1. If you don not have a SUPR NAISS account yet, register at https://supr.naiss.se/
 
 ## 2. Create an SSH key and add it to your SSH config file.
 
-2.1. Open your terminal.
+- 2.1. Open your terminal.
 
-2.2. Create an ~/.shh directory.
+- 2.2. Create an ~/.shh directory.
 
 ```
 cd ${HOME}
@@ -16,13 +16,13 @@ mkdir -p .ssh
 chmod 700 ~/.ssh
 ```
 
-2.3. Generate an SSH key.
+- 2.3. Generate an SSH key.
 
 ```
 ssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-pdc
 ```
 
-2.4. Add your SSH key to your SSH configuration file.
+- 2.4. Add your SSH key to your SSH configuration file.
 
 ```
 echo "Host dardel.pdc.kth.se
@@ -31,51 +31,51 @@ echo "Host dardel.pdc.kth.se
 
 ## 3. Register your SSH key on PDC Login Portal.
 
-3.1. Open your SSH public key, select everything and copy it to the clipboard.
+- 3.1. Open your SSH public key, select everything and copy it to the clipboard.
 
 ```
 less ~/.ssh/id-ed25519-pdc.pub
 ```
 
-3.2. Open PDC Login Portal (https://loginportal.pdc.kth.se/) in an internet browser and log in (authenticate your identity to PDC).
+- 3.2. Open PDC Login Portal (https://loginportal.pdc.kth.se/) in an internet browser and log in (authenticate your identity to PDC).
 
-3.3. Select **Add new key**.
+- 3.3. Select **Add new key**.
 
-3.4. Paste your **SSH public key**.
+- 3.4. Paste your **SSH public key**.
 
-3.5. Choose a key name to identify the computer where your SSH key is located (e.g., Personal computer, My MacBook).
+- 3.5. Choose a key name to identify the computer where your SSH key is located (e.g., Personal computer, My MacBook).
 
-3.6. Save.
+- 3.6. Save.
 
 ## 4. Log into Dardel/PDC.
 
-4.1. Open the terminal.
+- 4.1. Open the terminal.
 
-4.2. Log into Dardel (change **\<USERNAME\>** for your Dardel username).
+- 4.2. Log into Dardel (change **\<USERNAME\>** for your Dardel username).
 
 ```
 ssh <USERNAME>@dardel.pdc.kth.se
 ```
 
-4.3. Now you have access to Dardel/PDC via the terminal.
+- 4.3. Now you have access to Dardel/PDC via the terminal.
 
 ## 5. Set up ThinLinc.
 
-5.1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
+- 5.1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
 
-5.2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
+- 5.2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
 
-5.3. Go to **Advanced > Options > Security**, select **Public Key** as the **Authentication Method** and click **OK**.
+- 5.3. Go to **Advanced > Options > Security**, select **Public Key** as the **Authentication Method** and click **OK**.
 
-5.4. In **Key**, select your private SSH key file (used to log into Dardel/PDC).
+- 5.4. In **Key**, select your private SSH key file (used to log into Dardel/PDC).
 
-5.5. Click **Connect** and, if prompted a password, type in the password you used when you created you SSH key.
+- 5.5. Click **Connect** and, if prompted a password, type in the password you used when you created you SSH key.
 
-5.6. Now you have access to Dardel/PDC via ThinLinc.
+- 5.6. Now you have access to Dardel/PDC via ThinLinc.
 
 ## 6. Create important directories.
 
-6.1. Read about these directories before creating them. 
+- 6.1. Read about these directories before creating them.
 
 	- USER's **HOME** directory is USER-specific and should be used to store files that are not linked to any particular storage or compute project. If the USER leaves a PDC storage project, the USER will still have access to the files in their USER's **HOME** directory.	
 
@@ -120,9 +120,9 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 
 
-6.2. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
+- 6.2. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
 
-6.3. Create directories in your **HOME** directory.
+- 6.3. Create directories in your **HOME** directory.
 
 ```
 mkdir -p "${HOME}/myoriginalfiles" #Original files directory.
