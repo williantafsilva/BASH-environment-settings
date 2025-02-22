@@ -169,25 +169,19 @@
 
 - 6.4. Create directories in your USER's **HOME** directory.
 
-```
-mkdir -p "${HOME}/myoriginalfiles" #Original files directory.
-mkdir -p "${HOME}/myscripts" #Scripts directory.
-mkdir -p "${HOME}/myscripts/scripts-submitted" #Submitted scripts directory.
-mkdir -p "${HOME}/myoutput" #Output directory.
-mkdir -p "${HOME}/myapplications" #Local applications directory.
-mkdir -p "${HOME}/myslurm" #SLURM directory.
-mkdir -p "${HOME}/mysafe" #Safe directory.
-mkdir -p "${HOME}/mytrash" #Trash directory.
-mkdir -p "${HOME}/mytmp" #tmp directory.
-mkdir -p "${HOME}/myexport" #Export directory.
-mkdir -p "${HOME}/mytest" #Test directory.
-```
-
-6.4. 
-
-```
-
-```
+	```
+	mkdir -p "${HOME}/myoriginalfiles" #Original files directory.
+	mkdir -p "${HOME}/myscripts" #Scripts directory.
+	mkdir -p "${HOME}/myscripts/scripts-submitted" #Submitted scripts directory.
+	mkdir -p "${HOME}/myoutput" #Output directory.
+	mkdir -p "${HOME}/myapplications" #Local applications directory.
+	mkdir -p "${HOME}/myslurm" #SLURM directory.
+	mkdir -p "${HOME}/mysafe" #Safe directory.
+	mkdir -p "${HOME}/mytrash" #Trash directory.
+	mkdir -p "${HOME}/mytmp" #tmp directory.
+	mkdir -p "${HOME}/myexport" #Export directory.
+	mkdir -p "${HOME}/mytest" #Test directory.
+	```
 
 - **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the directories above:
 
