@@ -61,21 +61,17 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 ## 5. Set up ThinLinc.
 
-1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
+5.1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
 
-	1.1. dskjfsa
+5.2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
 
-	1.2. jnkadf
+5.3. Go to **Advanced > Options > Security**, select **Public Key** as the **Authentication Method** and click **OK**.
 
-2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
+5.4. In **Key**, select your private SSH key file (used to log into Dardel/PDC).
 
-3. Go to **Advanced > Options > Security**, select **Public Key** as the **Authentication Method** and click **OK**.
+5.5. Click **Connect** and, if prompted a password, type in the password you used when you created you SSH key.
 
-4. In **Key**, select your private SSH key file (used to log into Dardel/PDC).
-
-5. Click **Connect** and, if prompted a password, type in the password you used when you created you SSH key.
-
-6. Now you have access to Dardel/PDC via ThinLinc.
+5.6. Now you have access to Dardel/PDC via ThinLinc.
 
 ## 6. Create important directories.
 
