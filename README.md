@@ -284,7 +284,7 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 		cd "${PROJHOME}/${USER}-workingdir/scripts"
 		```
 
-	- 8.8.2. Import repository (change **\<GITHUB REPOSITORY SSH ADDRESS\>**, usually in the form *git@github.com:\<GITHUB USER\>/\<GITHUB REPOSITORY NAME\>.git*).
+	- 8.8.2. Import repository (change **\<GITHUB REPOSITORY SSH ADDRESS\>**, usually in the form *git\@github.com:\<GITHUB USER\>/\<GITHUB REPOSITORY NAME\>.git*).
 
 		```
 		git clone <GITHUB REPOSITORY SSH ADDRESS>
