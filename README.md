@@ -10,32 +10,32 @@
 
 - 2.2. Create an ~/.shh directory.
 
-```
-cd ${HOME}
-mkdir -p .ssh
-chmod 700 ~/.ssh
-```
+	```
+	cd ${HOME}
+	mkdir -p .ssh
+	chmod 700 ~/.ssh
+	```
 
 - 2.3. Generate an SSH key.
 
-```
-ssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-pdc
-```
+	```
+	ssh-keygen -t ed25519 -f ~/.ssh/id-ed25519-pdc
+	```
 
 - 2.4. Add your SSH key to your SSH configuration file.
 
-```
-echo "Host dardel.pdc.kth.se
-	IdentityFile $(readlink -f ~/.ssh/id-ed25519-pdc)" >> ~/.ssh/config
-```
+	```
+	echo "Host dardel.pdc.kth.se
+		IdentityFile $(readlink -f ~/.ssh/id-ed25519-pdc)" >> ~/.ssh/config
+	```
 
 ## 3. Register your SSH key on PDC Login Portal.
 
 - 3.1. Open your SSH public key, select everything and copy it to the clipboard.
 
-```
-less ~/.ssh/id-ed25519-pdc.pub
-```
+	```
+	less ~/.ssh/id-ed25519-pdc.pub
+	```
 
 - 3.2. Open PDC Login Portal (https://loginportal.pdc.kth.se/) in an internet browser and log in (authenticate your identity to PDC).
 
@@ -53,9 +53,9 @@ less ~/.ssh/id-ed25519-pdc.pub
 
 - 4.2. Log into Dardel (change **\<USERNAME\>** for your Dardel username).
 
-```
-ssh <USERNAME>@dardel.pdc.kth.se
-```
+	```
+	ssh <USERNAME>@dardel.pdc.kth.se
+	```
 
 - 4.3. Now you have access to Dardel/PDC via the terminal.
 
@@ -152,20 +152,20 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 	- 6.3.2. Create subdirectories.
 
-	```
-	mkdir -p "${PROJHOME}/${USER}-workingdir" #Project working directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/original-files" #Project original files directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/scripts" #Project scripts directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/scripts-submitted" #Project submitted scripts directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/output" #Project output directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/applications" #Project local applications directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/slurm" #Project local applications directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/safe" #Project safe directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/trash" #Project trash directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/tmp" #Project TMP directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/export" #Project export directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/test" #Project test directory.
-	```
+		```
+		mkdir -p "${PROJHOME}/${USER}-workingdir" #Project working directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/original-files" #Project original files directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/scripts" #Project scripts directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/scripts-submitted" #Project submitted scripts directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/output" #Project output directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/applications" #Project local applications directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/slurm" #Project local applications directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/safe" #Project safe directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/trash" #Project trash directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/tmp" #Project TMP directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/export" #Project export directory.
+		mkdir -p "${PROJHOME}/${USER}-workingdir/test" #Project test directory.
+		```
 
 - 6.4. Create directories in your USER's **HOME** directory.
 
