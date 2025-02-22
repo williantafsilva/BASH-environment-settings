@@ -94,17 +94,17 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 	- Important **${USER}-workingdir** subdirectories to be created by the USER:
 
-		- **${USER}-workingdir/original-files**: 
+		- **${USER}-workingdir/original-files** contains raw data and original files that are USER-specific or that were downloaded by the USER and will not be shared among other members of the project.
 
-		- **${USER}-workingdir/scripts**: 
+		- **${USER}-workingdir/scripts** contains project-related scripts written by the USER (or cloned from GitHub). This directory should be in the personal directory of USER to avoid loss of script files in the event of project discontinuation.
 
-		- **${USER}-workingdir/scripts-submitted**: 
+		- **${USER}-workingdir/scripts/scripts-submitted** contains copies of sbatch scripts submitted by the USER. To automatically save a copy of the submitted scripts, the USER needs to write sbatch scripts including the command `cat $0 > <PATH TO SUBMITTED SCRIPTS DIRECTORY>/job${SLURM_JOB_ID}.sh`, changing **\<PATH TO SUBMITTED SCRIPTS DIRECTORY\>** for the full path to this directory.
 
 		- **${USER}-workingdir/output**: 
 
-		- **${USER}-workingdir/applications**: 
+		- **${USER}-workingdir/applications** contains the USER's installations of softwares that are not available through the cluster.
 
-		- **${USER}-workingdir/slurm**: 
+		- **${USER}-workingdir/slurm** contains slurm log files from project-related sbatch jobs submitted by the USER.
 
 		- **${USER}-workingdir/safe**: 
 
