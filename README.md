@@ -319,19 +319,15 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 
 ## 9. Important recommendations.
 
-1. Raw data should be organized within the ${PROJHOME}/original-files directory.
+- 9.1. Keep raw data organized in the **${PROJHOME}/original-files** directory and do not modify or move them without the permission of the project manager.
 
-All our raw data and original files need to be moved to a subdirectory called original-files, which is located in the storage project directory (PROJHOME=/cfs/klemming/projects/supr/sllstore2017078), so if the raw data you are using are not in ${PROJHOME}/original-files and you are the only one using that data set, you can move it to a subdirectory in ${PROJHOME}/original-files. 
+- 9.2. Create README files for every directory and keep it updated. Make a habit of creating README files for every directory you create and keep those README files updated with all the information about the data the directory contains, so that future users (and even yourself) can understand what the directory contains and how the data was obtained, without having to find that information elsewhere.
 
-- Create README files for every directory and keep it updated.
+- 9.3. Keep your activity within your the **${PROJHOME}/${USER}-workingdir** directory.
 
-Make a habit of creating README files for every directory you create and keep those README files updated with all the information about the data the directory contains, so that future users can understand what the directory contains and how the data was obtained, without having to find that information elsewhere.
+- 9.4. Keep copies of the scripts used to process data in the same directory where the corresponding output data is located and add notes to the README file.
 
-- Keep your activity within your ${PROJHOME}/${USER}-workingdir directory.
-
-- Keep copies of the scripts used to process data in the same directory where the corresponding output data was stored and add notes to the README file.
-
-- These tools can help you manage your scripts and synchronize your local machine and your GitHub repositories: GitHub Desktop (https://github.com/apps/desktop), Sublime Text (https://www.sublimetext.com/), Visual Studio Code (https://code.visualstudio.com/).
+- 9.5. These tools can help you manage your scripts and synchronize your local machine and your GitHub repositories: GitHub Desktop (https://github.com/apps/desktop), Sublime Text (https://www.sublimetext.com/), Visual Studio Code (https://code.visualstudio.com/).
 
 
 
