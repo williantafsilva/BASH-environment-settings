@@ -222,7 +222,7 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 
 - 7.5. Ask the storage project manager to add or remove specific variables, aliases or settings.
 
-- 7.6. ?????
+- 7.6. If the directories mentioned in step 6 exist, you should be able to ?????
 
 ## 8. Import GitHub repositories.
 
