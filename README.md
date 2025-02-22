@@ -222,9 +222,9 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 
 - 7.5. Ask the storage project manager to add or remove specific variables, aliases or settings.
 
-- 7.6. 
+- 7.6. ?????
 
-## 8. Import scripts from GitHub.
+## 8. Import GitHub repositories.
 
 ?????
 
@@ -276,7 +276,7 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 	ssh-add -l -E md5
 	```
 
-- 8.8. Clone GitHub repositories (first time only).
+- 8.8. Clone GitHub repositories.
 
 	- 8.8.1. Go to the directory where the repository clone will be stored.
 
@@ -290,34 +290,32 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 		git clone <GITHUB REPOSITORY SSH ADDRESS>
 		```
 
-### Update GitHub repositories
+- 8.9. Update GitHub repositories when necessary. *Suggestion: Create a script (e.g., githubsync.sh) to update all your GitHub repositories simultaneously.*
 
-Recommendation: Create a script (e.g., githubsync.sh) to update all your GitHub repositories with a single command call.
+	- 8.9.1. Start SSH agent in the background.
 
-- Start SSH agent in the background.
+		```
+		eval "$(ssh-agent -s)"
+		```
 
-```
-eval "$(ssh-agent -s)"
-```
+	- 8.9.2. Add your SSH private key to the ssh-agent.
 
-- Add your SSH private key to the ssh-agent.
+		```
+		ssh-add ~/.ssh/id-ed25519-github
+		```
 
-```
-ssh-add ~/.ssh/id-ed25519-github
-```
+	- 8.9.3. Go to the repository directory cloned from GitHub (change **\<GITHUB REPOSITORY NAME\>** for the name of the target GitHub repository).
 
-- Go to the repository directory cloned from GitHub.
+		```
+		cd "${PROJHOME}/${USER}-workingdir/scripts/<GITHUB REPOSITORY NAME>"
+		```
 
-```
-cd <PATH TO REPOSITORY DIRECTORY>
-```
+	- 8.9.4. Pull repository from GitHub.
 
-- Pull repository from GitHub.
-
-```
-git stash
-git pull origin
-```
+		```
+		git stash
+		git pull origin
+		```
 
 ## 9. Important recommendations.
 
