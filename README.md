@@ -142,32 +142,42 @@
 
 - 6.2. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
 
-- 6.3. Create subdirectories in your **${USER}-workingdir** located in your PDC **storage project directory**.
+- 6.3. Define your PDC storage project directory (change **\<PATH TO STORAGE PROJECT HOME DIRECTORY\>** for the full path to your PDC **storage project home directory**, which can be found on https://supr.naiss.se/ or with the command `projinfo`).
 
-	- 6.3.1. Define your PDC storage project directory (change **\<PATH TO STORAGE PROJECT HOME DIRECTORY\>** for the full path to your PDC **storage project home directory**, which can be found on https://supr.naiss.se/ or with the command `projinfo`).
+	```
+	PROJHOME=<PATH TO STORAGE PROJECT HOME DIRECTORY>
+	```
 
-		```
-		PROJHOME=<PATH TO STORAGE PROJECT HOME DIRECTORY>
-		```		
+- 6.4. **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the project **original-files** and **project-bash-settings** subdirectories.
 
-	- 6.3.2. Create subdirectories.
+	```
+	mkdir -p "${PROJHOME}/original-files" #Project original files directory.
+	mkdir -p "${PROJHOME}/project-bash-settings" #Project BASH settings directory.
+	```	
 
-		```
-		mkdir -p "${PROJHOME}/${USER}-workingdir" #Project working directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/original-files" #Project original files directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/scripts" #Project scripts directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/scripts-submitted" #Project submitted scripts directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/output" #Project output directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/applications" #Project local applications directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/slurm" #Project local applications directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/safe" #Project safe directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/trash" #Project trash directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/tmp" #Project TMP directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/export" #Project export directory.
-		mkdir -p "${PROJHOME}/${USER}-workingdir/test" #Project test directory.
-		```
+- 6.5. **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the project working directories of the members of the project (change **\<USER\>** for the username of the member of the project).
 
-- 6.4. Create directories in your USER's **HOME** directory.
+	```
+	mkdir -p "${PROJHOME}/<USER>-workingdir" #Project working directory.
+	```
+
+- 6.6. Create subdirectories in your **${USER}-workingdir** located in your PDC **storage project directory**.
+
+	```
+	mkdir -p "${PROJHOME}/${USER}-workingdir/original-files" #Project original files directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/scripts" #Project scripts directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/scripts-submitted" #Project submitted scripts directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/output" #Project output directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/applications" #Project local applications directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/slurm" #Project local applications directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/safe" #Project safe directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/trash" #Project trash directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/tmp" #Project TMP directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/export" #Project export directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/test" #Project test directory.
+	```
+
+- 6.7. Create directories in your USER's **HOME** directory.
 
 	```
 	mkdir -p "${HOME}/myoriginalfiles" #Original files directory.
@@ -183,7 +193,7 @@
 	mkdir -p "${HOME}/mytest" #Test directory.
 	```
 
-- **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the directories above:
+
 
 
 
