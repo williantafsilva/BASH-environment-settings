@@ -106,23 +106,23 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 		- **${USER}-workingdir/slurm** contains slurm log files from project-related sbatch jobs submitted by the USER.
 
-		- **${USER}-workingdir/safe** contains files and directories (original, not copies) that need to be temporarily put aside from their original location so that the USER can perform operations in their original location without risking modifying or deleting those files. These files should be moved back to their original location as soon as possible. To facilitate moving files to/from **safe**, follow step use the scripts tosafe-stdout.sh and fromsafe-stdout.sh.
+		- **${USER}-workingdir/safe** contains files and directories (original, not copies) that need to be temporarily put aside from their original location so that the USER can perform operations in their original location without risking modifying or deleting those files. These files should be moved back to their original location as soon as possible. To facilitate moving files to/from **safe**, follow step 7 and use the scripts **tosafe-stdout.sh** and **fromsafe-stdout.sh**.
 
-		- **${USER}-workingdir/trash**: 
+		- **${USER}-workingdir/trash** contains files and directories that were deleted using the script **totrash-stdout.sh** (mentioned in step 7). The trash directory needs to be cleared regularly to free up disk space.
 
-		- **${USER}-workingdir/tmp**: 
+		- **${USER}-workingdir/tmp** contains temporary copies of files and directories. Copies of files and directories can be created in the **tmp** directory using the script **totmp-stdout.sh** (mentioned in step 7).
 
-		- **${USER}-workingdir/export**: 
+		- **${USER}-workingdir/export** contains copies of files that will be exported by the user. Having an **export** directory allows us to import files from the server (from outside the server, using *scp* or *rsync*) using always the path to the **export** directory instead of a different path every time files need to be imported. Copies of files and directories can be created in the **export** directory using the script **toexport-stdout.sh** (mentioned in step 7). To import files from your **export** directory to your local machine, use the command `scp -r <USER>@dardel.pdc.kth.se:<PATH TO EXPORT DIRECTORY>/* .`, changing **\<USER\>** for your *Dardel/PDC* username and **\<PATH TO EXPORT DIRECTORY\>** for the full path to your **export directory** on *Dardel/PDC*. You can also create an alias (e.g., *importfrompdc*) in your local machine so that you do not need to type the whole command every time you need to import files from your **export** directory.
 
-		- **${USER}-workingdir/test**: 
+		- **${USER}-workingdir/test** contains files and directories used for testing commands, scripts, processes, etc. Copies of files and directories can be created in the **test** directory using the script **totest-stdout.sh** (mentioned in step 7).
 
-	- Working directory (${PROJHOME}/${USER}-workingdir): USER-specific directory within the project directory where all USER's activity will take place.
+	- Important **HOME** subdirectories to be created by the USER:
 
-
+		- The subdirectories ?????
 
 - 6.2. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
 
-- 6.3. Create directories in your **HOME** directory.
+- 6.3. Create directories in your USER's **HOME** directory.
 
 ```
 mkdir -p "${HOME}/myoriginalfiles" #Original files directory.
@@ -144,7 +144,7 @@ mkdir -p "${HOME}/mytest" #Test directory.
 PROJHOME=<PATH TO PDC PROJECT DIRECTORY>
 ```
 
-6.5. Create directories in your PDC storage project directory.
+6.5. Create directories in your working directory in your PDC **storage project directory**.
 
 ```
 mkdir -p "${PROJHOME}/${USER}-workingdir" #Project working directory.
