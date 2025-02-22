@@ -63,9 +63,9 @@ ssh <USERNAME>@dardel.pdc.kth.se
 
 1. Download and install ThinLinc in your local machine (https://www.cendio.com/thinlinc/download/). If you have a MacBook, follow the instructions on https://www.cendio.com/resources/docs/tag/client_macos.html#installing-the-macos-client.
 
-	__1. dskjfsa
+	1.1. dskjfsa
 
-	__2. jnkadf
+	1.2. jnkadf
 
 2. Open ThinLinc and type in your Dardel/PDC username and the server address to Dardel (**dardel-vnc.pdc.kth.se**).
 
