@@ -222,11 +222,11 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 
 - 7.5. Ask the storage project manager to add or remove specific variables, aliases or settings.
 
-- 7.6. If the directories mentioned in step 6 exist, you should be able to ?????
+- 7.6. If the directories mentioned in step 6 exist, you should be able to use shared scripts, such as *totmp-sdtout.sh* (create a copy of a file in your project tmp directory) and *totest-sdtout.sh* (create a copy of a file in your project test directory).
 
 ## 8. Import GitHub repositories.
 
-?????
+GitHub is a useful tool to manage your scripts and projects. We can use GitHub to create a repository to store our scripts and connect our local machine to your scripts directory on Dardel/PDC, so that you create your scripts locally (local copy of your GitHub repository) using your favorite tools, then submit your changes to your online GitHub repository and, finally, pull the updated scripts from your online GitHub repository to your remote scripts directory on Dardel/PDC. Here I show how to connect to GitHub from Dardel/PDC, clone an existing GitHub repository and update the Dardel/PDC clone of the repository. 
 
 - 8.1. Configure Git (change **\<USER NAME\>** for your GitHub username and **\<E-MAIL\>** for your GitHub-associated e-mail address).
 
@@ -284,13 +284,13 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 		cd "${PROJHOME}/${USER}-workingdir/scripts"
 		```
 
-	- 8.8.2. Import repository (change **\<GITHUB REPOSITORY SSH ADDRESS\>** for the SSH address to the target GitHub repository, usually in the form *git<span>@</span>github.com:\<GITHUB USER\>/\<GITHUB REPOSITORY NAME\>.git*).
+	- 8.8.2. Import/clone repository (change **\<GITHUB REPOSITORY SSH ADDRESS\>** for the SSH address to the target GitHub repository, usually in the form *git<span>@</span>github.com:\<GITHUB USER\>/\<GITHUB REPOSITORY NAME\>.git*).
 
 		```
 		git clone <GITHUB REPOSITORY SSH ADDRESS>
 		```
 
-- 8.9. Update GitHub repositories when necessary. *Suggestion: Create a script (e.g., githubsync.sh) to update all your GitHub repositories simultaneously.*
+- 8.9. Update Dardel/PDC clones of GitHub repositories when necessary (whenever the online GitHub repository is updated). *Suggestion: Create a script (e.g., githubsync.sh) to update all your GitHub repositories simultaneously.*
 
 	- 8.9.1. Start SSH agent in the background.
 
@@ -323,55 +323,9 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 
 - 9.2. Create README files for every directory and keep it updated. Make a habit of creating README files for every directory you create and keep those README files updated with all the information about the data the directory contains, so that future users (and even yourself) can understand what the directory contains and how the data was obtained, without having to find that information elsewhere.
 
-- 9.3. Keep your activity within your the **${PROJHOME}/${USER}-workingdir** directory.
+- 9.3. Keep your activity within your the **${PROJHOME}/${USER}-workingdir** directory (or, as I put it, keep your mess in your own bedroom, don't bring it to the living room).
 
 - 9.4. Keep copies of the scripts used to process data in the same directory where the corresponding output data is located and add notes to the README file.
 
 - 9.5. These tools can help you manage your scripts and synchronize your local machine and your GitHub repositories: GitHub Desktop (https://github.com/apps/desktop), Sublime Text (https://www.sublimetext.com/), Visual Studio Code (https://code.visualstudio.com/).
 
-
-
-
-
-
-
-
-## Useful scripts
-
-Some of the scripts available here require the definition of the following environment variables (mybashprofile.sh): PATHTOPROJSAFE, PATHTOMYSLURM, PATHTOPROJEXPORT, PATHTOPROJTEST, PATHTOPROJTMP, PATHTOPROJTRASH.
-
-- countfiles-stdout.sh: Count number of files in a directory.
-
-- countlines-stdout.sh: Count the number of lines in each file.
-
-- cp-stdout.sh: Copy files to a target directory.
-
-- dirstructure-stdout.sh: Show directory hierarchy.
-
-- joblog-stdout.sh: View log file (in ${PATHTOMYSLURM}) of an SBATCH job.
-
-- ls-stdout.sh: List files in input directory.
-
-- mkdir-stdout.sh: Create a directory with a pre-filled README.txt file and log the creation of the directory.
-
-- mkREADME-stdout.sh: Create a README.txt file with a header.
-
-- mv-stdout.sh: Move or change name of input file.
-
-- njobs-stdout.sh: Retrieve the number of pending, running, completed, failed and cancelled sbatch jobs submitted by the user.
-
-- searchwithinfiles-stdout.sh: Search files that contain a specific string.
-
-- toexport-stdout.sh: Copy files to project export directory (${PATHTOPROJEXPORT}).
-
-- toREADME-stdout.sh: Add note to README.txt file.
-
-- tosafe-stdout.sh: Move target files/directories TO the project safe directory (${PATHTOPROJSAFE}).
-
-- fromsafe-stdout.sh: Move target files/directories FROM the project safe directory (${PATHTOPROJSAFE}).
-
-- totest-stdout.sh: Copy files to project test directory (${PATHTOPROJTEST}).
-
-- totmp-stdout.sh: Copy files to project tmp directory (${PATHTOPROJTMP}).
-
-- totrash-stdout.sh: Move input files to project trash directory (${PATHTOPROJTRASH}).
