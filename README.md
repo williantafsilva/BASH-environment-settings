@@ -2,7 +2,9 @@
 
 ## 1. Get a SUPR NAISS account.
 
-- 1.1. If you don not have a SUPR NAISS account yet, register at https://supr.naiss.se/
+- 1.1. If you don not have a SUPR NAISS account yet, register at https://supr.naiss.se/.
+
+- 1.2. Log into SUPR NAISS and request a Dardel/PCD account.
 
 ## 2. Create an SSH key and add it to your SSH config file.
 
