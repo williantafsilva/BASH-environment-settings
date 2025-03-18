@@ -98,7 +98,7 @@
 
 		- **${USER}-workingdir/original-files** contains raw data and original files that are USER-specific or that were downloaded by the USER and will not be shared among other members of the project.
 
-		- **${USER}-workingdir/scripts** contains project-related scripts written by the USER (or cloned from GitHub). This directory should be in the personal directory of USER to avoid loss of script files in the event of project discontinuation.
+		- **${USER}-workingdir/scripts** contains project-related scripts written by the USER (or cloned from GitHub). Scripts that are not linked to the project should be in the personal directory of USER to avoid loss of script files in the event of project discontinuation.
 
 		- **${USER}-workingdir/scripts/scripts-submitted** contains copies of sbatch scripts submitted by the USER. To automatically save a copy of the submitted scripts, the USER needs to write sbatch scripts including the command `cat $0 > <PATH TO SUBMITTED SCRIPTS DIRECTORY>/job${SLURM_JOB_ID}.sh`, changing **\<PATH TO SUBMITTED SCRIPTS DIRECTORY\>** for the full path to this directory.
 
@@ -168,7 +168,7 @@
 	```
 	mkdir -p "${PROJHOME}/${USER}-workingdir/original-files" #Project original files directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/scripts" #Project scripts directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/scripts-submitted" #Project submitted scripts directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir/scripts/scripts-submitted" #Project submitted scripts directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/output" #Project output directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/applications" #Project local applications directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/slurm" #Project local applications directory.
