@@ -142,11 +142,11 @@
 	PROJHOME=<PATH TO STORAGE PROJECT HOME DIRECTORY>
 	```
 
-- 6.4. **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the project **original-files** and **project-bash-settings** subdirectories.
+- 6.4. **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the project **original-files** and **project-bash-settings-<LAB NAME>** (replace \<LAB NAME\> with the name of the research group, e.g., wrightlab) subdirectories.
 
 	```
 	mkdir -p "${PROJHOME}/original-files" #Project original files directory.
-	mkdir -p "${PROJHOME}/project-bash-settings" #Project BASH settings directory.
+	mkdir -p "${PROJHOME}/project-bash-settings-<LAB NAME>" #Project BASH settings directory.
 	```	
 
 - 6.5. Create your project working directory and give other users permission to read it.
@@ -188,14 +188,14 @@
 
 Configuring your BASH profile can considerably facilitate your activity in the terminal. For example, one can define variables that are frequently used so that you do not need to define them every time you need them; one can change the color of different file types so that it is visually easier to find them; one can create aliases (shortcuts) to different commands; and one can add the paths to the scripts directory so that calling them becomes easier. The USER's BASH profile configuration can be defined with commands added to the USER's *~/.bashrc* file (which is located in the USER's **HOME** directory). The *~/.bashrc* file is loaded every time the USER logs in.
 
-With that in mind and assuming you have all the directories mentioned in step 6, follow the next steps to add predefined useful settings to your BASH profile. These settings are located in the **${PROJHOME}/project-bash-settings** directory and contain important variables, such as *PROJECT_ID*, as well as paths that can be used in scripts (with the shebang *#!/bin/bash -l*), and aliases to useful commands. However, most of these predefined BASH settings can only be used if the directories mentioned in step 6 exist.
+With that in mind and assuming you have all the directories mentioned in step 6, follow the next steps to add predefined useful settings to your BASH profile. These settings are located in the **${PROJHOME}/project-bash-settings-<LAB NAME>** directory and contain important variables, such as *PROJECT_ID*, as well as paths that can be used in scripts (with the shebang *#!/bin/bash -l*), and aliases to useful commands. However, most of these predefined BASH settings can only be used if the directories mentioned in step 6 exist.
 
 - 7.1. Log into Dardel/PDC in a terminal (via ssh).
 
-- 7.2. Add project and user settings to the beginning of your *~/.bashrc* file (change **\<PATH TO STORAGE PROJECT HOME DIRECTORY\>** for the full path to your PDC **storage project home directory**, which can be found on https://supr.naiss.se/ or with the command `projinfo`). Adding this `source` call to the beginning of your *~/.bashrc* file allows you to overwrite any variable that has been predefined in the **${PROJHOME}/project-bash-settings** directory by defining such variable after/below the *source* call.
+- 7.2. Add project and user settings to the beginning of your *~/.bashrc* file (change **\<PATH TO STORAGE PROJECT HOME DIRECTORY\>** for the full path to your PDC **storage project home directory**, which can be found on https://supr.naiss.se/ or with the command `projinfo`). Adding this `source` call to the beginning of your *~/.bashrc* file allows you to overwrite any variable that has been predefined in the **${PROJHOME}/project-bash-settings-<LAB NAME>** directory by defining such variable after/below the *source* call.
 
 	```
-	sed -i '1isource "<PATH TO STORAGE PROJECT HOME DIRECTORY>/project-bash-settings/${USER}-settings.sh"' ~/.bashrc
+	sed -i '1isource "<PATH TO STORAGE PROJECT HOME DIRECTORY>/project-bash-settings-<LAB NAME>/${USER}-settings.sh"' ~/.bashrc
 	```
 
 - 7.3. Load your BASH settings (*~/.bashrc*).
@@ -207,8 +207,8 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 - 7.4. Check which variables and aliases have been predefined in your BASH settings.
 
 	```
-	less "${PROJHOME}/project-bash-settings/general-settings.sh"
-	less "${PROJHOME}/project-bash-settings/${USER}-settings.sh"
+	less "${PROJHOME}/project-bash-settings-<LAB NAME>/general-settings.sh"
+	less "${PROJHOME}/project-bash-settings-<LAB NAME>/${USER}-settings.sh"
 	```
 
 - 7.5. Ask the storage project manager to add or remove specific variables, aliases or settings.
