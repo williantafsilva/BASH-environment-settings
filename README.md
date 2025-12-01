@@ -108,15 +108,11 @@
 
 		- **${USER}-workingdir/slurm** contains slurm log files from project-related sbatch jobs submitted by the USER.
 
-		- **${USER}-workingdir/safe** contains files and directories (original, not copies) that need to be temporarily put aside from their original location so that the USER can perform operations in their original location without risking modifying or deleting those files. These files should be moved back to their original location as soon as possible. To facilitate moving files to/from **safe**, follow step 7 and use the scripts **tosafe-stdout.sh** and **fromsafe-stdout.sh**.
-
 		- **${USER}-workingdir/trash** contains files and directories that were deleted using the script **totrash-stdout.sh** (mentioned in step 7). The trash directory needs to be cleared regularly to free up disk space.
 
 		- **${USER}-workingdir/tmp** contains temporary copies of files and directories. Copies of files and directories can be created in the **tmp** directory using the script **totmp-stdout.sh** (mentioned in step 7).
 
 		- **${USER}-workingdir/export** contains copies of files that will be exported by the user. Having an **export** directory allows us to import files from the server (from outside the server, using *scp* or *rsync*) using always the path to the **export** directory instead of a different path every time files need to be imported. Copies of files and directories can be created in the **export** directory using the script **toexport-stdout.sh** (mentioned in step 7). To import files from your **export** directory to your local machine, use the command `scp -r <USER>@dardel.pdc.kth.se:<PATH TO EXPORT DIRECTORY>/* .`, changing **\<USER\>** for your *Dardel/PDC* username and **\<PATH TO EXPORT DIRECTORY\>** for the full path to your **export directory** on *Dardel/PDC*. You can also create an alias (e.g., *importfrompdc*) in your local machine so that you do not need to type the whole command every time you need to import files from your **export** directory.
-
-		- **${USER}-workingdir/test** contains files and directories used for testing commands, scripts, processes, etc. Copies of files and directories can be created in the **test** directory using the script **totest-stdout.sh** (mentioned in step 7).
 
 	- Important **HOME** subdirectories (to be created by the USER): The USER is adviced to create the subdirectories above also in the USER's **HOME** directory, but using the prefix *my* to distinguish them from the **${USER}-workingdir** subdirectories. These subdirectories should be used in precesses that are not linked to any **storage project** and are not shared with any other USER.
 
@@ -132,15 +128,11 @@
 
 		- **${HOME}/myslurm**
 
-		- **${HOME}/mysafe**
-
 		- **${HOME}/mytrash**
 
 		- **${HOME}/mytmp**
 
 		- **${HOME}/myexport**
-
-		- **${HOME}/mytest**
 
 - 6.2. Log into Dardel/PDC in a terminal (via ssh), or open the terminal on ThinLinc.
 
@@ -157,10 +149,11 @@
 	mkdir -p "${PROJHOME}/project-bash-settings" #Project BASH settings directory.
 	```	
 
-- 6.5. **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the project working directories of the members of the project (change **\<USER\>** for the username of the member of the project).
+- 6.5. Create your project working directory and give other users permission to read it.
 
 	```
-	mkdir -p "${PROJHOME}/<USER>-workingdir" #Project working directory.
+	mkdir -p "${PROJHOME}/${USER}-workingdir" #Create project working directory.
+	chmod g+wrx "${PROJHOME}/${USER}-workingdir" #Set permissions.
 	```
 
 - 6.6. Create subdirectories in your **${USER}-workingdir** located in your PDC **storage project directory**.
@@ -172,11 +165,9 @@
 	mkdir -p "${PROJHOME}/${USER}-workingdir/output" #Project output directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/applications" #Project local applications directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/slurm" #Project local applications directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/safe" #Project safe directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/trash" #Project trash directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/tmp" #Project TMP directory.
 	mkdir -p "${PROJHOME}/${USER}-workingdir/export" #Project export directory.
-	mkdir -p "${PROJHOME}/${USER}-workingdir/test" #Project test directory.
 	```
 
 - 6.7. Create directories in your USER's **HOME** directory.
@@ -188,11 +179,9 @@
 	mkdir -p "${HOME}/myoutput" #Output directory.
 	mkdir -p "${HOME}/myapplications" #Local applications directory.
 	mkdir -p "${HOME}/myslurm" #SLURM directory.
-	mkdir -p "${HOME}/mysafe" #Safe directory.
 	mkdir -p "${HOME}/mytrash" #Trash directory.
 	mkdir -p "${HOME}/mytmp" #tmp directory.
 	mkdir -p "${HOME}/myexport" #Export directory.
-	mkdir -p "${HOME}/mytest" #Test directory.
 	```
 
 ## 7. Configure your BASH profile.
