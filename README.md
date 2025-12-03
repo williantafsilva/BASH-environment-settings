@@ -213,7 +213,7 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 
 - 7.5. Ask the storage project manager to add or remove specific variables, aliases or settings.
 
-- 7.6. If the directories mentioned in step 6 exist, you should be able to use shared scripts, such as *totmp-sdtout.sh* (create a copy of a file in your project tmp directory) and *totest-sdtout.sh* (create a copy of a file in your project test directory).
+- 7.6. If the directories mentioned in step 6 exist, you should be able to use shared scripts, such as *totmp-sdtout.sh* (create a copy of a file in your project tmp directory) and *toexport-sdtout.sh* (create a copy of a file in your project test directory).
 
 ## 8. Import GitHub repositories.
 
