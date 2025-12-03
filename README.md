@@ -142,7 +142,7 @@
 	PROJHOME=<PATH TO STORAGE PROJECT HOME DIRECTORY>
 	```
 
-- 6.4. **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the project **original-files** and **project-bash-settings-\<LAB NAME\>** (replace \<LAB NAME\> with the name of the research group, e.g., wrightlab) subdirectories.
+- 6.4. **(FOR THE STORAGE PROJECT MANAGER ONLY)** Create the project **original-files** and **project-bash-settings-\<LAB NAME\>** (replace \<LAB NAME\> with the name of the research group, e.g., silvalab) subdirectories.
 
 	```
 	mkdir -p "${PROJHOME}/original-files" #Project original files directory.
