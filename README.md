@@ -153,7 +153,7 @@
 
 	```
 	mkdir -p "${PROJHOME}/${USER}-workingdir" #Create project working directory.
-	chmod g+wrx "${PROJHOME}/${USER}-workingdir" #Set permissions.
+	chmod -R g+wrx "${PROJHOME}/${USER}-workingdir" #Set permissions.
 	```
 
 - 6.6. Create subdirectories in your **${USER}-workingdir** located in your PDC **storage project directory**.
