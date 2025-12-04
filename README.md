@@ -195,6 +195,7 @@ With that in mind and assuming you have all the directories mentioned in step 6,
 - 7.2. Add project and user settings to the beginning of your *~/.bashrc* file (change **\<PATH TO STORAGE PROJECT HOME DIRECTORY\>** for the full path to your PDC **storage project home directory**, which can be found on https://supr.naiss.se/ or with the command `projinfo`). Adding this `source` call to the beginning of your *~/.bashrc* file allows you to overwrite any variable that has been predefined in the **${PROJHOME}/project-bash-settings-<LAB NAME>** directory by defining such variable after/below the *source* call.
 
 	```
+	touch ~/.bashrc
 	sed -i '1isource "<PATH TO STORAGE PROJECT HOME DIRECTORY>/project-bash-settings-<LAB NAME>/${USER}-settings.sh"' ~/.bashrc
 	```
 
